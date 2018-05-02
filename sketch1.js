@@ -4,7 +4,6 @@ var firstPrinciple = function(s) {
   var y;
   var easing;
   var bck;
-  var arrow;
 
 
   s.setup = function() {
@@ -12,7 +11,7 @@ var firstPrinciple = function(s) {
     y = 0;
     easing = 0.05;
     bck = '#04E973';
-    arrow = 
+    arrow =
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
@@ -83,7 +82,14 @@ var firstPrinciple = function(s) {
   }
 
   s.mouseClicked  = function() {
-    s.down();
+    //Check if the mouse is inside the arrow's rectangle
+    // var mx = s.windowWidth - x;
+    // var my = s.windowHeight - y;
+    var dx = Math.abs(s.mouseX - s.windowWidth + x);
+    var dy = Math.abs(s.mouseY - s.windowHeight + y);
+    if( dx < 20 && dy < 20) {
+      s.down();
+    }
   }
 
 
