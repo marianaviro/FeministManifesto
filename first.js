@@ -78,7 +78,8 @@ var firstPrinciple = function(s) {
   };
 
   s.down = function() {
-    bck = '#000000';
+    s.select('#second').show();
+    s.select('#first').hide();
   }
 
   s.mouseClicked  = function() {
