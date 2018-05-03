@@ -82,17 +82,32 @@ var firstPrinciple = function(s) {
   }
 
   s.mouseClicked  = function() {
+    var mx = s.windowWidth - x;
+    var my = s.windowHeight - y;
+
     //Check if the mouse is inside the arrow's rectangle
-    // var mx = s.windowWidth - x;
-    // var my = s.windowHeight - y;
-    var dx = Math.abs(s.mouseX - s.windowWidth + x);
-    var dy = Math.abs(s.mouseY - s.windowHeight + y);
-    if( dx < 20 && dy < 20) {
+    var dx = s.mouseX - mx;
+    var dy = s.mouseY - my;
+    if(0 < dx && dx < 20 && 0 < dy && dy < 20) {
       s.down();
+    } else {
+      //Check if the mouse is inside the arrow's left triangle
+      var lx = Math.abs(s.mouseX - mx + 10);
+      var ly = Math.abs(s.mouseY - my - 20);
+      if(lx < 20 && ly < 20 && lx > ly) {
+        console.log('entro izq');
+        s.down();
+      } else {
+        //Check if the mouse is inside the arrow's right triangle
+        var rx = 20 - Math.abs(s.mouseX - mx - 10);
+        var ry = Math.abs(s.mouseY - my - 20);
+        if(rx < 20 && ry < 20 && rx > ry) {
+          console.log('entro der');
+          s.down();
+        }
+      }
     }
   }
-
-
 }
 
 var one = new p5(firstPrinciple, 'one');
