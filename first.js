@@ -46,6 +46,7 @@ var firstPrinciple = function(s) {
     s.background(arrowColor2);
 
     //Menu
+    s.textFont('Futura');
     s.fill(homeColor);
     s.textStyle(s.BOLD);
     s.textSize(12);
@@ -63,7 +64,6 @@ var firstPrinciple = function(s) {
 
     //Principle
     s.noStroke();
-    s.textFont('Futura');
     s.fill(255);
     s.textStyle(s.NORMAL);
     s.textSize(35);
@@ -79,10 +79,10 @@ var firstPrinciple = function(s) {
     s.text('ESCEPTICISMO', s.windowWidth/2 - 180, s.windowHeight/2 + 75);
 
     //Arrow
-    var targetX = s.mouseX;
+    var targetX = s.constrain(s.mouseX, 0, s.windowWidth);
     var dx = targetX - x;
     x += dx * easing;
-    var targetY = s.mouseY;
+    var targetY = s.constrain(s.mouseY, 0, s.windowHeight);
     var dy = targetY - y;
     y += dy * easing;
     s.arrow(s.windowWidth - x, s.windowHeight - y);
@@ -174,6 +174,8 @@ var firstPrinciple = function(s) {
       s.down();
     } else if(s.mouseInsideHome()) {
       s.home();
+    } else if(s.mouseInsidePrinciples()) {
+      s.first();
     }
   };
 
@@ -203,6 +205,16 @@ var firstPrinciple = function(s) {
 
   s.down = function() {
     s.select('#second').show();
+    s.select('#first').hide();
+  };
+
+  s.home = function() {
+    s.select('#zero').show();
+    s.select('#first').hide();
+  };
+
+  s.first = function() {
+    s.select('#third').show();
     s.select('#first').hide();
   };
 
