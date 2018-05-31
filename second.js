@@ -1,86 +1,98 @@
-var secondPrinciple = function(s) {
+var second = function(s) {
 
-  var letter;
-  var abc;
-  var x;
+  var homeColor;
+  var principlesColor;
+  var openColor;
+  var stopColor;
+  var arrowColor;
   var showArrow;
+  var running;
+  var project;
+  var stopText;
 
   s.setup = function() {
-    s.background(100);
+    homeColor = '#e61dff';
+    principlesColor = '#e61dff';
+    openColor = '#731DD3';
+    stopColor = '#FFFFFF';
+    arrowColor = '#e61dff';
+    stopText = 'D E T E N E R';
+    count = 0;
+    backwards = 0;
+    showArrow = false;
+    running = true;
+    project = projects[Math.floor(Math.random() * projects.length)];
+
+    //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
-    letter = '';
-    abc = 'ABDEFGHJKLMOPQRSTUVXYZ1234567890?*+=@#%&';
-    x = 0;
   };
 
   s.draw = function() {
 
     //Background
-    s.background('#217DF4');
-    // s.background('#21F4F4');
+    s.background('#731DD3');
+
+    //Menu
+    s.textAlign(s.LEFT);
+    s.noStroke();
+    s.textFont('Futura');
+    s.fill(homeColor);
+    s.textStyle(s.BOLD);
+    s.textSize(12);
+    s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+    s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+    s.fill(principlesColor);
+    s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+    s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
     //Rectangle
-    s.fill('#217DF4');
-    // s.fill('#21F4F4');
-    s.stroke('#21F4F4');
-    // s.stroke(255);
+    s.fill('#e61dff');
+    s.stroke('#FFFFFF');
     s.strokeWeight(20);
-    s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
+    s.rect(s.windowWidth/3, 140, s.windowWidth/3, s.windowHeight - 350);
 
-    //Principle
-    s.noStroke();
-    s.textAlign(s.LEFT);
-    s.textFont('Futura');
-    s.fill(255);
-    // s.fill('#217DF4');
-    s.textStyle(s.NORMAL);
-    s.textSize(35);
-    s.text('EN EL', s.windowWidth/2 - 50, s.windowHeight/2 - 105);
-    s.textStyle(s.BOLD);
-    s.textSize(50);
-    s.text('FEMINISMO', s.windowWidth/2 - 160, s.windowHeight/2 - 50);
-    s.textStyle(s.NORMAL);
-    s.textSize(65);
-    s.text('CABEMOS', s.windowWidth/2 - 170, s.windowHeight/2 + 25);
-    s.textStyle(s.BOLD);
-    s.textSize(85);
-    s.text('TOD', s.windowWidth/2 - 165, s.windowHeight/2 + 115);
-
-    //Letter
-    if(letter != '') {
-      s.fill('#FF83FF');
-      // s.fill(255);
+    //Projects
+    if(running) {
+      s.noStroke();
+      s.textFont('Futura');
+      s.fill('#FFFFFF');
+      s.textStyle(s.NORMAL);
+      s.textSize(35);
       s.textAlign(s.CENTER);
-      s.text(letter, s.windowWidth/2 + 65, s.windowHeight/2 + 115);
+      project = projects[Math.floor(Math.random() * projects.length)];
+      s.text(project.name, s.windowWidth/3 + 50, 300, s.windowWidth/3 - 70);
     } else {
-      s.textAlign(s.LEFT);
-      s.frameRate(2);
-      s.rect(s.windowWidth/2 + 32, s.windowHeight/2 + 50, 60, 65);
-      if(x == 0) {
-        s.fill(200);
-        x = 1;
-      } else {
-        s.fill(255);
-        x = 0;
-      }
-      s.rect(s.windowWidth/2 + 45, s.windowHeight/2 + 58, 3, 50);
+      //Projects
+      s.noStroke();
+      s.textFont('Futura');
+      s.fill('#FFFFFF');
+      s.textStyle(s.NORMAL);
+      s.textSize(35);
+      s.textAlign(s.CENTER);
+      s.text(project.name, s.windowWidth/3 + 50, 300, s.windowWidth/3 - 70);
+
+      //Open
+      s.fill(openColor);
+      s.textStyle(s.BOLD);
+      s.textSize(25);
+      s.rect(s.windowWidth/3 + 50, 495, s.windowWidth/3 - 100, 5);
+      s.text('V E R   I N I C I A T I V A', s.windowWidth/3 + 210, 545);
     }
-    s.fill(255);
-    s.textAlign(s.LEFT);
-    s.text('S', s.windowWidth/2 + 100, s.windowHeight/2 + 115);
+
+    //Stop
+    s.textStyle(s.BOLD);
+    s.fill('#e61dff');
+    s.rect(s.windowWidth/2 - 100, s.windowHeight - 160, 200, 50);
+    s.fill(stopColor);
+    s.textSize(20);
+    s.textAlign(s.CENTER);
+    s.text(stopText, s.windowWidth/2 - 100, s.windowHeight - 128, 200);
 
     //Arrow
     if(showArrow) {
       var mx = s.windowWidth/2 - 10;
       var my = s.windowHeight - 60;
-
-      if(s.mouseInsideArrow()) {
-        s.cursor(s.HAND);
-        s.fill('#FFFFFF');
-      } else {
-        s.cursor(s.ARROW);
-        s.fill('#21F4F4');
-      }
+      s.fill(arrowColor);
       s.noStroke();
       s.beginShape();
       s.vertex(mx, my);
@@ -95,23 +107,57 @@ var secondPrinciple = function(s) {
     }
   };
 
-  s.keyTyped = function() {
-    s.frameRate(60);
-    letter = abc.charAt(Math.floor(Math.random() * abc.length));
-    if(!showArrow) {
-      showArrow = true;
+  s.mouseInsideOpen = function() {
+    var x1 = s.windowWidth/3 + 50;
+    var x2 = 2*s.windowWidth/3 - 50;
+    var y1 = 490;
+    var y2 = 550;
+    if( s.mouseX > x1 && s.mouseX < x2 && s.mouseY > y1 && s.mouseY < y2 ) {
+      return true;
+    } else {
+      return false;
     }
   };
 
-  s.mouseClicked  = function() {
-    if(s.mouseInsideArrow()) {
-      s.down();
+  s.mouseInsideStop = function() {
+    var x1 = s.windowWidth/2 - 100;
+    var x2 = s.windowWidth/2 + 100;
+    var y1 = s.windowHeight - 160;
+    var y2 = s.windowHeight - 110;
+    if( s.mouseX > x1 && s.mouseX < x2 && s.mouseY > y1 && s.mouseY < y2 ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  s.mouseInsideHome = function() {
+    var hx1 = s.windowWidth/2 - 110;
+    var hx2 = s.windowWidth/2 - 50;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  s.mouseInsidePrinciples = function() {
+    var hx1 = s.windowWidth/2;
+    var hx2 = s.windowWidth/2 + 100;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
+    } else {
+      return false;
     }
   };
 
   s.mouseInsideArrow = function() {
     if(showArrow) {
-      var mx = s.windowWidth/2 - 10;
+      var mx = s.windowWidth/2 - 10;;
       var my = s.windowHeight - 60;
 
       //Check if the mouse is inside the arrow's rectangle
@@ -138,11 +184,76 @@ var secondPrinciple = function(s) {
     }
   };
 
-  s.down = function() {
+  s.mouseClicked  = function() {
+    if(s.mouseInsideArrow()){
+      s.next();
+    } else if(s.mouseInsideOpen()) {
+      s.open();
+    } else if(s.mouseInsideStop()) {
+      s.stop();
+    } else if(s.mouseInsideHome()) {
+      s.home();
+    } else if(s.mouseInsidePrinciples()) {
+      s.first();
+    }
+  };
+
+  s.mouseMoved = function() {
+    if(s.mouseInsideStop()) {
+      stopColor = '#731DD3';
+      s.cursor(s.HAND);
+    } else if(s.mouseInsideOpen()) {
+      openColor = '#FFFFFF';
+      s.cursor(s.HAND);
+    } else if(s.mouseInsideHome()) {
+      homeColor = '#FFFFFF';
+      s.cursor(s.HAND);
+    } else if(s.mouseInsidePrinciples()) {
+      principlesColor = '#FFFFFF';
+      s.cursor(s.HAND);
+    } else if(s.mouseInsideArrow()) {
+      arrowColor = '#FFFFFF';
+      s.cursor(s.HAND);
+    } else {
+      s.cursor(s.ARROW);
+      arrowColor = '#e61dff';
+      homeColor = '#e61dff';
+      principlesColor = '#e61dff';
+      openColor = '#731DD3';
+      stopColor = '#FFFFFF';
+    }
+  };
+
+  s.open = function() {
+    window.open(project.url);
+  };
+
+  s.stop = function() {
+    if(stopText == 'D E T E N E R') {
+      running = false;
+      showArrow = true;
+      stopText = 'I N I C I A R';
+    } else {
+      running = true;
+      stopText = 'D E T E N E R';
+    }
+  };
+
+  s.next = function() {
     s.select('#third').show();
+    s.select('#second').hide();
+  };
+
+  s.home = function() {
+    s.select('#home').show();
+    s.select('#second').hide();
+  };
+
+  s.first = function() {
+    s.select('#first').show();
     s.select('#second').hide();
   };
 
 }
 
-var two = new p5(secondPrinciple, 'second');
+var second = new p5(second, 'second');

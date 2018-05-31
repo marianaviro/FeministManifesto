@@ -137,7 +137,7 @@ var home = function(s) {
   };
 
   s.home = function() {
-
+    //Do nothing
   };
 
   s.first = function() {

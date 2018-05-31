@@ -1,17 +1,22 @@
-var firstPrinciple = function(s) {
+var first = function(s) {
 
-  var color;
-  var pluralColor;
-  var showArrow;
+  var homeColor;
+  var principlesColor;
   var count;
+  var pluralColor;
+  var overPlural;
+  var backwards;
 
   s.setup = function() {
-    s.background(100);
-    s.createCanvas(s.displayWidth, s.displayHeight);
-    pluralColor = '#E61DFF';
-    color = 0;
+    homeColor = '#e61dff';
+    principlesColor = '#e61dff';
     count = 0;
-    s.cursor(s.ARROW);
+    backwards = 0;
+    pluralColor = '#e61dff';
+    overPlural = false;
+
+    //Canvas
+    s.createCanvas(s.displayWidth, s.displayHeight);
   };
 
   s.draw = function() {
@@ -19,9 +24,27 @@ var firstPrinciple = function(s) {
     //Background
     s.background('#731DD3');
 
+    //Menu
+    s.noStroke();
+    s.textFont('Futura');
+    s.fill(homeColor);
+    s.textStyle(s.BOLD);
+    s.textSize(12);
+    s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+    s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+    s.fill(principlesColor);
+    s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+    s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+
     //Rectangle
-    s.fill('#731DD3');
-    s.stroke('#FF83FF');
+    s.fill('#FF83FF');
+    s.text('P R I N C I P I O   # 1', s.windowWidth/2 - 75, s.windowHeight/2 - 170);
+    s.strokeWeight(20);
+    s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
+
+    //Rectangle
+    s.fill('#FF83FF');
+    s.noStroke();
     s.strokeWeight(20);
     s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
 
@@ -30,100 +53,61 @@ var firstPrinciple = function(s) {
     s.textFont('Futura');
     s.fill(255);
     s.textStyle(s.NORMAL);
-    s.textSize(35);
-    s.text('EL', s.windowWidth/2 -20, s.windowHeight/2 - 100);
+    s.textSize(30);
+    s.text('EL', s.windowWidth/2 -20, s.windowHeight/2 - 110);
     s.textStyle(s.BOLD);
-    s.textSize(58);
-    s.text('FEMINISMO', s.windowWidth/2 - 180, s.windowHeight/2 -35);
+    s.textSize(50);
+    s.text('FEMINISMO', s.windowWidth/2 - 160, s.windowHeight/2 - 43);
     s.textStyle(s.NORMAL);
-    s.textSize(48.5);
-    s.text('ES UN ESPACIO', s.windowWidth/2 - 180, s.windowHeight/2 + 20);
-    s.fill(pluralColor);
-    s.textStyle(s.BOLD);
-    s.textSize(92);
-    if(s.mouseInsidePlural()) {
-      s.cursor(s.HAND);
-      s.fill(255);
-    } else {
-      s.fill(pluralColor);
-      s.cursor(s.ARROW);
-    }
-    s.text('PLURAL', s.windowWidth/2 - 183, s.windowHeight/2 + 110);
+    s.textSize(43);
+    s.text('ES UN ESPACIO', s.windowWidth/2 - 160, s.windowHeight/2 + 15);
 
-    //Arrow
-    if(showArrow) {
-      var mx = s.windowWidth/2 - 10;
-      var my = s.windowHeight - 60;
-      if(s.mouseInsideArrow()) {
-        s.cursor(s.HAND);
-        s.fill(255);
-      } else {
-        s.fill('#E61DFF');
+    //Plural
+    if(!overPlural) {
+      var from = s.color('#ff1dff');
+      var to = s.color('#731DD3');
+      var m = s.map(count, 0, 10, 0, 0.5);
+      if(count == 10) {
+        backwards = 1;
+      } else if(count == 0){
+        backwards = 0;
       }
-      s.noStroke();
-      s.beginShape();
-      s.vertex(mx, my);
-      s.vertex(mx + 20, my);
-      s.vertex(mx + 20, my + 20);
-      s.vertex(mx + 30, my + 20);
-      s.vertex(mx + 10, my + 40);
-      s.vertex(mx - 10, my + 20);
-      s.vertex(mx, my + 20);
-      s.vertex(mx, my);
-      s.endShape(s.CLOSE);
-
-      //Text
-      s.fill(255);
-      s.textSize(11.5);
-      s.textStyle(s.NORMAL);
-      s.text('¿ T E   G U S T A R Í A   C O N O C E R   O T R A   I N I C I A T I V A ?', s.windowWidth/2 - 180, s.windowHeight/8 - 20);
-      s.textSize(21.5);
-      s.textStyle(s.BOLD);
-      s.text('H A Z   C L I C K   D E   N U E V O', s.windowWidth/2 - 180, s.windowHeight/8 + 10);
+      if(backwards == 1){
+        count --;
+      } else {
+        count ++;
+      }
+      pluralColor = s.lerpColor(from, to, m);
+      s.fill(pluralColor);
+    } else {
+      s.fill('#FFFFFF');
     }
-
-    //Color
-    count++;
-    s.setColor();
+    s.textStyle(s.BOLD);
+    s.textSize(80);
+    s.text('PLURAL', s.windowWidth/2 - 160, s.windowHeight/2 + 100);
   };
 
-  s.mouseClicked  = function() {
-    if(s.mouseInsideArrow()) {
-      s.down();
-    } else if(s.mouseInsidePlural()){
-      showArrow = true;
-      s.go();
+  s.mouseInsideHome = function() {
+    var hx1 = s.windowWidth/2 - 110;
+    var hx2 = s.windowWidth/2 - 50;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
     } else {
       return false;
     }
   };
 
-  s.mouseInsideArrow = function() {
-    if(showArrow) {
-      var mx = s.windowWidth/2 - 10;;
-      var my = s.windowHeight - 60;
-
-      //Check if the mouse is inside the arrow's rectangle
-      var dx = s.mouseX - mx;
-      var dy = s.mouseY - my;
-      if(0 < dx && dx < 20 && 0 < dy && dy < 20) {
-        return true;
-      } else {
-        //Check if the mouse is inside the arrow's left triangle
-        var lx = Math.abs(s.mouseX - mx + 10);
-        var ly = Math.abs(s.mouseY - my - 20);
-        if(lx < 20 && ly < 20 && lx > ly) {
-          return true;
-        } else {
-          //Check if the mouse is inside the arrow's right triangle
-          var rx = 20 - Math.abs(s.mouseX - mx - 10);
-          var ry = Math.abs(s.mouseY - my - 20);
-          if(rx < 20 && ry < 20 && rx > ry) {
-            return true;
-          }
-          return false;
-        }
-      }
+  s.mouseInsidePrinciples = function() {
+    var hx1 = s.windowWidth/2;
+    var hx2 = s.windowWidth/2 + 100;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
+    } else {
+      return false;
     }
   };
 
@@ -138,34 +122,48 @@ var firstPrinciple = function(s) {
     return false;
   };
 
-  s.go = function() {
-    var project = projects[Math.floor(Math.random() * projects.length)];
-    window.open(project.url);
-  };
-
-  s.setColor = function() {
-    if(count == 60) {
-      if(color % 3 == 0) {
-        pluralColor = '#217DF4';
-        color++;
-        count = 0;
-      } else if(color % 3 == 1) {
-        pluralColor = '#21F4F4';
-        color++;
-        count = 0;
-      } else {
-        pluralColor = '#E61DFF';
-        color++;
-        count = 0;
-      }
+  s.mouseClicked  = function() {
+    if(s.mouseInsidePlural()){
+      s.next();
+    } else if(s.mouseInsideHome()) {
+      s.home();
+    } else if(s.mouseInsidePrinciples()) {
+      s.first();
     }
   };
 
-  s.down = function() {
+  s.mouseMoved = function() {
+    if(s.mouseInsidePlural()) {
+      overPlural = true;
+      s.cursor(s.HAND);
+    } else if(s.mouseInsideHome()) {
+      homeColor = '#FFFFFF';
+      s.cursor(s.HAND);
+    } else if(s.mouseInsidePrinciples()) {
+      principlesColor = '#FFFFFF';
+      s.cursor(s.HAND);
+    } else {
+      overPlural = false;
+      s.cursor(s.ARROW);
+      homeColor = '#e61dff';
+      principlesColor = '#e61dff';
+    }
+  };
+
+  s.next = function() {
     s.select('#second').show();
     s.select('#first').hide();
   };
 
+  s.home = function() {
+    s.select('#home').show();
+    s.select('#first').hide();
+  };
+
+  s.first = function() {
+    //Do nothing
+  };
+
 }
 
-var one = new p5(firstPrinciple, 'first');
+var first = new p5(first, 'first');
