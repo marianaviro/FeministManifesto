@@ -11,43 +11,54 @@ var home = function(s) {
     homeColor = '#731dd3';
     principlesColor = '#731dd3';
     logo = s.loadImage('http://localhost:8080/logo.png');
+    s.noStroke();
+    s.textFont('Futura');
+    s.fill(homeColor);
+    s.textStyle(s.BOLD);
+    s.textSize(12);
+    s.background('#FFFFFF');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
   };
 
   s.draw = function() {
-    //Background
-    s.background('#FFFFFF');
-    s.image(logo, s.windowWidth/2 - 250, s.windowHeight/2 - 250, 500, 500);
 
-    //Menu
-    s.noStroke();
-    s.textFont('Futura');
-    s.fill(homeColor);
-    s.textStyle(s.BOLD);
-    s.textSize(12);
-    s.text('i n i c i o', s.windowWidth/2 - 110, 30);
-    s.rect(s.windowWidth/2 - 68, 35, 12, 6);
-    s.fill(principlesColor);
-    s.text('p r i n c i p i o s', s.windowWidth/2, 30);
-    s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+    if(s.select('#home').style('display') == 'block') {
+      // console.log("Home");
 
-    //Arrow
-    var mx = s.windowWidth - 60;
-    var my = s.windowHeight/2 - 10;
+      //Background
+      s.background('#FFFFFF');
+      s.image(logo, s.windowWidth/2 - 250, s.windowHeight/2 - 250, 500, 500);
 
-    s.fill(arrowColor);
-    s.beginShape();
-    s.vertex(mx, my);
-    s.vertex(mx, my - 20);
-    s.vertex(mx + 20, my - 20);
-    s.vertex(mx + 20, my - 30);
-    s.vertex(mx + 40, my - 10);
-    s.vertex(mx + 20, my + 10);
-    s.vertex(mx + 20, my);
-    s.vertex(mx, my);
-    s.endShape(s.CLOSE);
+      //Menu
+      s.noStroke();
+      s.textFont('Futura');
+      s.fill(homeColor);
+      s.textStyle(s.BOLD);
+      s.textSize(12);
+      s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+      s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+      s.fill(principlesColor);
+      s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+      s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+
+      //Arrow
+      var mx = s.windowWidth - 60;
+      var my = s.windowHeight/2 - 10;
+
+      s.fill(arrowColor);
+      s.beginShape();
+      s.vertex(mx, my);
+      s.vertex(mx, my - 20);
+      s.vertex(mx + 20, my - 20);
+      s.vertex(mx + 20, my - 30);
+      s.vertex(mx + 40, my - 10);
+      s.vertex(mx + 20, my + 10);
+      s.vertex(mx + 20, my);
+      s.vertex(mx, my);
+      s.endShape(s.CLOSE);
+    }
   };
 
   s.mouseInsideArrow = function() {
@@ -141,7 +152,7 @@ var home = function(s) {
   };
 
   s.first = function() {
-    s.select('#first').show();
+    s.select('#p1_1').show();
     s.select('#home').hide();
   };
 

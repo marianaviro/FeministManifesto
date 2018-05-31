@@ -21,118 +21,124 @@ var intro = function(s) {
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
     s.background('#FFFFFF');
+    s.noStroke();
+    s.textFont('Futura');
+    s.textStyle(s.BOLD);
+    s.textAlign(s.LEFT);
   };
 
   s.draw = function() {
-    s.noStroke();
+    if(s.select('#intro').style('display') == 'block') {
+      // console.log("Intro");
 
-    //Background
-    s.blendMode(s.NORMAL);
-    s.background('#FFFFFF');
+      //Background
+      s.blendMode(s.NORMAL);
+      s.background('#FFFFFF');
 
-    //Menu
-    s.noStroke();
-    s.textAlign(s.LEFT);
-    s.textFont('Futura');
-    s.blendMode(s.MULTIPLY);
-    s.fill(homeColor1);
-    s.textStyle(s.BOLD);
-    s.textSize(12);
-    s.text('i n i c i o', s.windowWidth/2 - 110, 30);
-    s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+      //Menu
+      s.noStroke();
+      s.textAlign(s.LEFT);
+      s.textFont('Futura');
+      s.blendMode(s.MULTIPLY);
+      s.fill(homeColor1);
+      s.textStyle(s.BOLD);
+      s.textSize(12);
+      s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+      s.rect(s.windowWidth/2 - 68, 35, 12, 6);
 
-    s.fill(homeColor2);
-    s.textStyle(s.BOLD);
-    s.textSize(12);
-    s.text('i n i c i o', s.windowWidth/2 - 111, 31);
-    s.rect(s.windowWidth/2 - 69, 36, 12, 6);
+      s.fill(homeColor2);
+      s.textStyle(s.BOLD);
+      s.textSize(12);
+      s.text('i n i c i o', s.windowWidth/2 - 111, 31);
+      s.rect(s.windowWidth/2 - 69, 36, 12, 6);
 
-    s.fill(principlesColor1);
-    s.text('p r i n c i p i o s', s.windowWidth/2, 30);
-    s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+      s.fill(principlesColor1);
+      s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+      s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
-    s.fill(principlesColor2);
-    s.text('p r i n c i p i o s', s.windowWidth/2, 31);
-    s.rect(s.windowWidth/2 + 87, 36, 12, 6);
+      s.fill(principlesColor2);
+      s.text('p r i n c i p i o s', s.windowWidth/2, 31);
+      s.rect(s.windowWidth/2 + 87, 36, 12, 6);
 
-    //Arrow
-    var mx = s.windowWidth - 60;
-    var my = s.windowHeight/2;
+      //Arrow
+      var mx = s.windowWidth - 60;
+      var my = s.windowHeight/2;
 
-    s.fill(arrowColor1);
-    s.beginShape();
-    s.vertex(mx, my);
-    s.vertex(mx, my - 20);
-    s.vertex(mx + 20, my - 20);
-    s.vertex(mx + 20, my - 30);
-    s.vertex(mx + 40, my - 10);
-    s.vertex(mx + 20, my + 10);
-    s.vertex(mx + 20, my);
-    s.vertex(mx, my);
-    s.endShape(s.CLOSE);
+      s.fill(arrowColor1);
+      s.beginShape();
+      s.vertex(mx, my);
+      s.vertex(mx, my - 20);
+      s.vertex(mx + 20, my - 20);
+      s.vertex(mx + 20, my - 30);
+      s.vertex(mx + 40, my - 10);
+      s.vertex(mx + 20, my + 10);
+      s.vertex(mx + 20, my);
+      s.vertex(mx, my);
+      s.endShape(s.CLOSE);
 
-    s.fill(arrowColor2);
-    s.beginShape();
-    s.vertex(mx + 1, my + 1);
-    s.vertex(mx + 1, my - 19);
-    s.vertex(mx + 21, my - 19);
-    s.vertex(mx + 21, my - 29);
-    s.vertex(mx + 41, my - 9);
-    s.vertex(mx + 21, my + 11);
-    s.vertex(mx + 21, my);
-    s.vertex(mx, my);
-    s.endShape(s.CLOSE);
+      s.fill(arrowColor2);
+      s.beginShape();
+      s.vertex(mx + 1, my + 1);
+      s.vertex(mx + 1, my - 19);
+      s.vertex(mx + 21, my - 19);
+      s.vertex(mx + 21, my - 29);
+      s.vertex(mx + 41, my - 9);
+      s.vertex(mx + 21, my + 11);
+      s.vertex(mx + 21, my);
+      s.vertex(mx, my);
+      s.endShape(s.CLOSE);
 
-    //Rectangle
-    s.fill('#ff83ff');
-    s.beginShape();
-    s.vertex(0, 265);
-    s.vertex(s.windowWidth, 265);
-    s.vertex(s.windowWidth, s.windowHeight);
-    s.vertex(0, s.windowHeight);
-    s.endShape();
+      //Rectangle
+      s.fill('#ff83ff');
+      s.beginShape();
+      s.vertex(0, 265);
+      s.vertex(s.windowWidth, 265);
+      s.vertex(s.windowWidth, s.windowHeight);
+      s.vertex(0, s.windowHeight);
+      s.endShape();
 
-    //Image
-    s.blendMode(s.NORMAL);
-    s.image(img, -200, s.windowHeight - 520);
+      //Image
+      s.blendMode(s.NORMAL);
+      s.image(img, -200, s.windowHeight - 520);
 
-    //Triangle
-    s.blendMode(s.MULTIPLY);
-    s.fill('#21f4f4');
-    s.beginShape();
-    s.vertex(0, 0);
-    s.vertex(0, s.windowHeight);
-    s.vertex(s.windowWidth/3, 0);
-    s.endShape();
+      //Triangle
+      s.blendMode(s.MULTIPLY);
+      s.fill('#21f4f4');
+      s.beginShape();
+      s.vertex(0, 0);
+      s.vertex(0, s.windowHeight);
+      s.vertex(s.windowWidth/3, 0);
+      s.endShape();
 
-    //Title 1
-    s.textFont('Futura');
-    s.fill('#21f4f4');
-    s.textStyle(s.BOLD);
-    s.textSize(120);
-    s.text('T', s.windowWidth/2, 300);
-    s.text('O', s.windowWidth/2 + 75, 300);
-    s.text('D', s.windowWidth/2 + 200, 300);
-    s.text('_', s.windowWidth/2 + 310, 280);
-    s.text('S', s.windowWidth/2 + 400, 300);
+      //Title 1
+      s.textFont('Futura');
+      s.fill('#21f4f4');
+      s.textStyle(s.BOLD);
+      s.textSize(120);
+      s.text('T', s.windowWidth/2, 300);
+      s.text('O', s.windowWidth/2 + 75, 300);
+      s.text('D', s.windowWidth/2 + 200, 300);
+      s.text('_', s.windowWidth/2 + 310, 280);
+      s.text('S', s.windowWidth/2 + 400, 300);
 
-    //Title 2
-    s.fill('#ff83ff');
-    s.textSize(120);
-    s.text('T', s.windowWidth/2 + 10, 310);
-    s.text('O', s.windowWidth/2 + 85, 310);
-    s.text('D', s.windowWidth/2 + 210, 310);
-    s.text('_', s.windowWidth/2 + 320, 290);
-    s.text('S', s.windowWidth/2 + 410, 310);
+      //Title 2
+      s.fill('#ff83ff');
+      s.textSize(120);
+      s.text('T', s.windowWidth/2 + 10, 310);
+      s.text('O', s.windowWidth/2 + 85, 310);
+      s.text('D', s.windowWidth/2 + 210, 310);
+      s.text('_', s.windowWidth/2 + 320, 290);
+      s.text('S', s.windowWidth/2 + 410, 310);
 
-    //Paragraph
-    s.blendMode(s.NORMAL);
-    s.fill('#FFFFFF');
-    s.textStyle(s.ITALIC);
-    s.textSize(16);
-    s.textAlign(s.CENTER);
-    s.text('TOD_S es una plataforma que nació de mi interés por el feminismo y como una suerte de catarsis con la que buscaba sublimar experiencias negativas y dolorosas que viví desde mi lugar como mujer y desde la expresión de mi feminidad; a raíz de estas experiencias decidí contribuir de alguna forma a este movimiento. La necesidad de ubicarme en el vasto universo de la lucha feminista culminó en este proyecto, que es un manifiesto digital en donde exploro las posibilidades que he identificado en el feminismo. Esta es mi mirada. Y aunque es modesta y susceptible al cambio, es el resultado de un trabajo arduo por comprender lo que une y separa no solo a quienes nos consideramos feministas, sino –especialmente– a quienes no. Bienvenid_s tod_s.', s.windowWidth/2 - 5, 400, 500, 400);
+      //Paragraph
+      s.blendMode(s.NORMAL);
+      s.fill('#FFFFFF');
+      s.textStyle(s.ITALIC);
+      s.textSize(16);
+      s.textAlign(s.CENTER);
+      s.text('TOD_S es una plataforma que nació de mi interés por el feminismo y como una suerte de catarsis con la que buscaba sublimar experiencias negativas y dolorosas que viví desde mi lugar como mujer y desde la expresión de mi feminidad; a raíz de estas experiencias decidí contribuir de alguna forma a este movimiento. La necesidad de ubicarme en el vasto universo de la lucha feminista culminó en este proyecto, que es un manifiesto digital en donde exploro las posibilidades que he identificado en el feminismo. Esta es mi mirada. Y aunque es modesta y susceptible al cambio, es el resultado de un trabajo arduo por comprender lo que une y separa no solo a quienes nos consideramos feministas, sino –especialmente– a quienes no. Bienvenid_s tod_s.', s.windowWidth/2 - 5, 400, 500, 400);
 
+    }
   };
 
   s.mouseInsideArrow = function() {
@@ -232,7 +238,7 @@ var intro = function(s) {
   };
 
   s.first = function() {
-    s.select('#first').show();
+    s.select('#p1_1').show();
     s.select('#intro').hide();
   };
 

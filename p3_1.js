@@ -1,4 +1,4 @@
-var thirdPrinciple = function(s) {
+var p3_1 = function(s) {
 
   var x;
   var y;
@@ -24,68 +24,86 @@ var thirdPrinciple = function(s) {
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
+    s.background(backgroundColor);
+    s.noStroke();
+    s.fill('#04E973');
+    s.textFont('Futura');
+    s.textStyle(s.BOLD);
+    s.textSize(16);
   };
 
   s.draw = function() {
 
-    //Background
-    var from = s.color('#DAFF7D');
-    var to = s.color(backgroundColor);
-    var m = s.map(count, 0, 100, 0, 0.2);
-    if(count == 100) {
-      backwards = 1;
-    } else if(count == 0){
-      backwards = 0;
+    if(s.select('#p3_1').style('display') == 'block') {
+      // console.log("Third Principle – Part 1");
+
+      //Background
+      var from = s.color('#DAFF7D');
+      var to = s.color(backgroundColor);
+      var m = s.map(count, 0, 100, 0, 0.2);
+      if(count == 100) {
+        backwards = 1;
+      } else if(count == 0){
+        backwards = 0;
+      }
+      if(backwards == 1){
+        count --;
+      } else {
+        count ++;
+      }
+      arrowColor2 = s.lerpColor(from, to, m);
+      s.background(arrowColor2);
+
+      //Page number
+      s.noStroke();
+      s.fill('#04E973');
+      s.textFont('Futura');
+      s.textStyle(s.BOLD);
+      s.textSize(16);
+      s.text('3 / 7', 20, s.windowHeight - 20);
+
+      //Menu
+      s.textFont('Futura');
+      s.fill(homeColor);
+      s.textStyle(s.BOLD);
+      s.textSize(12);
+      s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+      s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+      s.fill(principlesColor);
+      s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+      s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+
+      //Rectangle
+      s.fill('#04E973');
+      s.text('P R I N C I P I O   # 3', s.windowWidth/2 - 75, s.windowHeight/2 - 170);
+      s.strokeWeight(20);
+      s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
+
+      //Principle
+      s.noStroke();
+      s.fill(255);
+      s.textStyle(s.NORMAL);
+      s.textSize(35);
+      s.text('EL', s.windowWidth/2 -20, s.windowHeight/2 - 100);
+      s.textStyle(s.BOLD);
+      s.textSize(58);
+      s.text('FEMINISMO', s.windowWidth/2 - 180, s.windowHeight/2 -35);
+      s.textStyle(s.NORMAL);
+      s.textSize(30);
+      s.text('LE DA LA BIENVENIDA AL', s.windowWidth/2 - 180, s.windowHeight/2 + 12);
+      s.textStyle(s.BOLD);
+      s.textSize(48.5);
+      s.text('ESCEPTICISMO', s.windowWidth/2 - 180, s.windowHeight/2 + 75);
+
+      //Arrow
+      var targetX = s.constrain(s.mouseX, 0, s.windowWidth);
+      var dx = targetX - x;
+      x += dx * easing;
+      var targetY = s.constrain(s.mouseY, 0, s.windowHeight);
+      var dy = targetY - y;
+      y += dy * easing;
+      s.arrow(s.windowWidth - x, s.windowHeight - y);
     }
-    if(backwards == 1){
-      count --;
-    } else {
-      count ++;
-    }
-    arrowColor2 = s.lerpColor(from, to, m);
-    s.background(arrowColor2);
-
-    //Menu
-    s.textFont('Futura');
-    s.fill(homeColor);
-    s.textStyle(s.BOLD);
-    s.textSize(12);
-    s.text('i n i c i o', s.windowWidth/2 - 110, 30);
-    s.rect(s.windowWidth/2 - 68, 35, 12, 6);
-    s.fill(principlesColor);
-    s.text('p r i n c i p i o s', s.windowWidth/2, 30);
-    s.rect(s.windowWidth/2 + 86, 35, 12, 6);
-
-    //Rectangle
-    s.fill('#04E973');
-    s.text('P R I N C I P I O   # 3', s.windowWidth/2 - 75, s.windowHeight/2 - 170);
-    s.strokeWeight(20);
-    s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
-
-    //Principle
-    s.noStroke();
-    s.fill(255);
-    s.textStyle(s.NORMAL);
-    s.textSize(35);
-    s.text('EL', s.windowWidth/2 -20, s.windowHeight/2 - 100);
-    s.textStyle(s.BOLD);
-    s.textSize(58);
-    s.text('FEMINISMO', s.windowWidth/2 - 180, s.windowHeight/2 -35);
-    s.textStyle(s.NORMAL);
-    s.textSize(30);
-    s.text('LE DA LA BIENVENIDA AL', s.windowWidth/2 - 180, s.windowHeight/2 + 12);
-    s.textStyle(s.BOLD);
-    s.textSize(48.5);
-    s.text('ESCEPTICISMO', s.windowWidth/2 - 180, s.windowHeight/2 + 75);
-
-    //Arrow
-    var targetX = s.constrain(s.mouseX, 0, s.windowWidth);
-    var dx = targetX - x;
-    x += dx * easing;
-    var targetY = s.constrain(s.mouseY, 0, s.windowHeight);
-    var dy = targetY - y;
-    y += dy * easing;
-    s.arrow(s.windowWidth - x, s.windowHeight - y);
   };
 
   s.arrow = function(mx, my) {
@@ -204,20 +222,20 @@ var thirdPrinciple = function(s) {
   };
 
   s.down = function() {
-    s.select('#fourth').show();
-    s.select('#third').hide();
+    s.select('#p3_2').show();
+    s.select('#p3_1').hide();
   };
 
   s.home = function() {
     s.select('#home').show();
-    s.select('#third').hide();
+    s.select('#p3_1').hide();
   };
 
   s.first = function() {
-    s.select('#first').show();
-    s.select('#third').hide();
+    s.select('#p1_1').show();
+    s.select('#p3_1').hide();
   };
 
 }
 
-var three = new p5(thirdPrinciple, 'third');
+var p3_1 = new p5(p3_1, 'p3_1');

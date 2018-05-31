@@ -25,7 +25,12 @@ var tutorial = function(s) {
     img3 = s.loadImage('http://localhost:8080/Tutorial3.png');
     img4 = s.loadImage('http://localhost:8080/Tutorial4.png');
     currentImg = img1;
-
+    s.background('#FFFFFF');
+    s.noStroke();
+    s.textFont('Futura');
+    s.fill(homeColor);
+    s.textStyle(s.BOLD);
+    s.textSize(12);
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
@@ -33,54 +38,58 @@ var tutorial = function(s) {
 
   s.draw = function() {
 
-    //Background
-    s.background('#FFFFFF');
+    if(s.select('#tutorial').style('display') == 'block') {
+      // console.log("Tutorial");
 
-    //Menu
-    s.noStroke();
-    s.textFont('Futura');
-    s.fill(homeColor);
-    s.textStyle(s.BOLD);
-    s.textSize(12);
-    s.text('i n i c i o', s.windowWidth/2 - 110, 30);
-    s.rect(s.windowWidth/2 - 68, 35, 12, 6);
-    s.fill(principlesColor);
-    s.text('p r i n c i p i o s', s.windowWidth/2, 30);
-    s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+      //Background
+      s.background('#FFFFFF');
 
-    //Title
-    s.fill('#ff83ff');
-    s.textStyle(s.NORMAL);
-    s.textSize(50);
-    s.text('¿CÓMO LEER', s.windowWidth/2 - 170, 180);
-    s.textStyle(s.BOLD);
-    s.textSize(50);
-    s.text('ESTE MANIFIESTO?', s.windowWidth/2 - 250, 240);
+      //Menu
+      s.noStroke();
+      s.textFont('Futura');
+      s.fill(homeColor);
+      s.textStyle(s.BOLD);
+      s.textSize(12);
+      s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+      s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+      s.fill(principlesColor);
+      s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+      s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
-    //Container
-    s.rect(s.windowWidth/6, 280, 2*s.windowWidth/3, 430);
-    s.fill('#e61dff');
-    s.rect(s.windowWidth/6 + 20, 300, 2*s.windowWidth/3 - 40, 390);
-    s.fill('#ff83ff');
-    s.rect(s.windowWidth/6, 280, 50, 50);
-    s.rect(s.windowWidth/2 - 100, 690, 200, 60);
-    s.fill('#FFFFFF');
-    s.textStyle(s.BOLD);
-    s.textSize(26);
-    s.text('' + numero, s.windowWidth/6 + 20, 320);
-    s.fill(startColor);
-    s.text('EMPEZAR', s.windowWidth/2 - 65, 735);
+      //Title
+      s.fill('#ff83ff');
+      s.textStyle(s.NORMAL);
+      s.textSize(50);
+      s.text('¿CÓMO LEER', s.windowWidth/2 - 170, 180);
+      s.textStyle(s.BOLD);
+      s.textSize(50);
+      s.text('ESTE MANIFIESTO?', s.windowWidth/2 - 250, 240);
 
-    //Left Arrow
-    s.fill(leftArrowColor);
-    s.triangle(s.windowWidth/6 - 20, s.windowHeight/2 + 60, s.windowWidth/6 - 50, s.windowHeight/2 + 85, s.windowWidth/6 - 20, s.windowHeight/2 +110);
+      //Container
+      s.rect(s.windowWidth/6, 280, 2*s.windowWidth/3, 430);
+      s.fill('#e61dff');
+      s.rect(s.windowWidth/6 + 20, 300, 2*s.windowWidth/3 - 40, 390);
+      s.fill('#ff83ff');
+      s.rect(s.windowWidth/6, 280, 50, 50);
+      s.rect(s.windowWidth/2 - 100, 690, 200, 60);
+      s.fill('#FFFFFF');
+      s.textStyle(s.BOLD);
+      s.textSize(26);
+      s.text('' + numero, s.windowWidth/6 + 20, 320);
+      s.fill(startColor);
+      s.text('EMPEZAR', s.windowWidth/2 - 65, 735);
 
-    //Right Arrow
-    s.fill(rightArrowColor);
-    s.triangle(5*s.windowWidth/6 + 20, s.windowHeight/2 + 60, 5*s.windowWidth/6 + 50, s.windowHeight/2 + 85, 5*s.windowWidth/6 + 20, s.windowHeight/2 +110);
+      //Left Arrow
+      s.fill(leftArrowColor);
+      s.triangle(s.windowWidth/6 - 20, s.windowHeight/2 + 60, s.windowWidth/6 - 50, s.windowHeight/2 + 85, s.windowWidth/6 - 20, s.windowHeight/2 +110);
 
-    //Image
-    s.image(currentImg, s.windowWidth/6 + 120, 330);
+      //Right Arrow
+      s.fill(rightArrowColor);
+      s.triangle(5*s.windowWidth/6 + 20, s.windowHeight/2 + 60, 5*s.windowWidth/6 + 50, s.windowHeight/2 + 85, 5*s.windowWidth/6 + 20, s.windowHeight/2 +110);
+
+      //Image
+      s.image(currentImg, s.windowWidth/6 + 120, 330);
+    }
   };
 
   s.mouseInsideLeftArrow = function() {
@@ -220,7 +229,7 @@ var tutorial = function(s) {
   };
 
   s.start = function() {
-    s.select('#first').show();
+    s.select('#p1_1').show();
     s.select('#tutorial').hide();
   };
 
@@ -230,7 +239,7 @@ var tutorial = function(s) {
   };
 
   s.first = function() {
-    s.select('#first').show();
+    s.select('#p1_1').show();
     s.select('#tutorial').hide();
   };
 
