@@ -5,10 +5,6 @@ var home = function(s) {
   var principlesColor;
   var logo;
 
-  // s.preload = function() {
-  //   logo = s.loadImage('http://localhost:8080/logo.png');
-  // };
-
 
   s.setup = function() {
     arrowColor = '#731dd3';
@@ -137,7 +133,7 @@ var home = function(s) {
 
   s.next = function() {
     s.select('#intro').show();
-    s.select('#zero').hide();
+    s.select('#home').hide();
   };
 
   s.home = function() {
