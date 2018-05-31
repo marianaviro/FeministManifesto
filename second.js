@@ -111,7 +111,7 @@ var secondPrinciple = function(s) {
 
   s.mouseInsideArrow = function() {
     if(showArrow) {
-      var mx = s.windowWidth/2 - 10;;
+      var mx = s.windowWidth/2 - 10;
       var my = s.windowHeight - 60;
 
       //Check if the mouse is inside the arrow's rectangle
