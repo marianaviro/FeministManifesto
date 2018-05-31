@@ -45,16 +45,16 @@ var tutorial = function(s) {
       s.background('#FFFFFF');
 
       //Menu
-      s.noStroke();
-      s.textFont('Futura');
-      s.fill(homeColor);
-      s.textStyle(s.BOLD);
-      s.textSize(12);
-      s.text('i n i c i o', s.windowWidth/2 - 110, 30);
-      s.rect(s.windowWidth/2 - 68, 35, 12, 6);
-      s.fill(principlesColor);
-      s.text('p r i n c i p i o s', s.windowWidth/2, 30);
-      s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+      // s.noStroke();
+      // s.textFont('Futura');
+      // s.fill(homeColor);
+      // s.textStyle(s.BOLD);
+      // s.textSize(12);
+      // s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+      // s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+      // s.fill(principlesColor);
+      // s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+      // s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
       //Title
       s.fill('#ff83ff');

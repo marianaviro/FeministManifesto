@@ -189,7 +189,7 @@ var p3_1 = function(s) {
 
   s.mouseClicked = function() {
     if(s.mouseInsideArrow()) {
-      s.down();
+      s.next();
     } else if(s.mouseInsideHome()) {
       s.home();
     } else if(s.mouseInsidePrinciples()) {
@@ -221,7 +221,7 @@ var p3_1 = function(s) {
     }
   };
 
-  s.down = function() {
+  s.next = function() {
     s.select('#p3_2').show();
     s.select('#p3_1').hide();
   };

@@ -36,34 +36,35 @@ var intro = function(s) {
       s.background('#FFFFFF');
 
       //Menu
-      s.noStroke();
-      s.textAlign(s.LEFT);
-      s.textFont('Futura');
-      s.blendMode(s.MULTIPLY);
-      s.fill(homeColor1);
-      s.textStyle(s.BOLD);
-      s.textSize(12);
-      s.text('i n i c i o', s.windowWidth/2 - 110, 30);
-      s.rect(s.windowWidth/2 - 68, 35, 12, 6);
-
-      s.fill(homeColor2);
-      s.textStyle(s.BOLD);
-      s.textSize(12);
-      s.text('i n i c i o', s.windowWidth/2 - 111, 31);
-      s.rect(s.windowWidth/2 - 69, 36, 12, 6);
-
-      s.fill(principlesColor1);
-      s.text('p r i n c i p i o s', s.windowWidth/2, 30);
-      s.rect(s.windowWidth/2 + 86, 35, 12, 6);
-
-      s.fill(principlesColor2);
-      s.text('p r i n c i p i o s', s.windowWidth/2, 31);
-      s.rect(s.windowWidth/2 + 87, 36, 12, 6);
+      // s.noStroke();
+      // s.textAlign(s.LEFT);
+      // s.textFont('Futura');
+      // s.blendMode(s.MULTIPLY);
+      // s.fill(homeColor1);
+      // s.textStyle(s.BOLD);
+      // s.textSize(12);
+      // s.text('i n i c i o', s.windowWidth/2 - 110, 30);
+      // s.rect(s.windowWidth/2 - 68, 35, 12, 6);
+      //
+      // s.fill(homeColor2);
+      // s.textStyle(s.BOLD);
+      // s.textSize(12);
+      // s.text('i n i c i o', s.windowWidth/2 - 111, 31);
+      // s.rect(s.windowWidth/2 - 69, 36, 12, 6);
+      //
+      // s.fill(principlesColor1);
+      // s.text('p r i n c i p i o s', s.windowWidth/2, 30);
+      // s.rect(s.windowWidth/2 + 86, 35, 12, 6);
+      //
+      // s.fill(principlesColor2);
+      // s.text('p r i n c i p i o s', s.windowWidth/2, 31);
+      // s.rect(s.windowWidth/2 + 87, 36, 12, 6);
 
       //Arrow
       var mx = s.windowWidth - 60;
       var my = s.windowHeight/2;
 
+      s.blendMode(s.MULTIPLY);
       s.fill(arrowColor1);
       s.beginShape();
       s.vertex(mx, my);
@@ -137,7 +138,7 @@ var intro = function(s) {
       s.textSize(16);
       s.textAlign(s.CENTER);
       s.text('TOD_S es una plataforma que nació de mi interés por el feminismo y como una suerte de catarsis con la que buscaba sublimar experiencias negativas y dolorosas que viví desde mi lugar como mujer y desde la expresión de mi feminidad; a raíz de estas experiencias decidí contribuir de alguna forma a este movimiento. La necesidad de ubicarme en el vasto universo de la lucha feminista culminó en este proyecto, que es un manifiesto digital en donde exploro las posibilidades que he identificado en el feminismo. Esta es mi mirada. Y aunque es modesta y susceptible al cambio, es el resultado de un trabajo arduo por comprender lo que une y separa no solo a quienes nos consideramos feministas, sino –especialmente– a quienes no. Bienvenid_s tod_s.', s.windowWidth/2 - 5, 400, 500, 400);
-
+      
     }
   };
 

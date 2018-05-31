@@ -1,4 +1,4 @@
-var p3_2 = function(s) {
+var p4_3 = function(s) {
 
   var homeColor;
   var principlesColor;
@@ -6,14 +6,14 @@ var p3_2 = function(s) {
   var img;
 
   s.setup = function() {
-    arrowColor = '#04E973';
-    homeColor = '#04E973';
-    principlesColor = '#04E973';
-    img = s.loadImage('http://localhost:8080/Escepticismo.png');
+    arrowColor = '#ffff85';
+    homeColor = '#ffff85';
+    principlesColor = '#ffff85';
+    img = s.loadImage('http://localhost:8080/Racionalidad.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
-    s.background('#DAFF7D');
+    s.background('#FF83FF');
     s.noStroke();
     s.fill('#FFFFFF');
     s.textFont('Futura');
@@ -23,11 +23,11 @@ var p3_2 = function(s) {
 
   s.draw = function() {
 
-    if(s.select('#p3_2').style('display') == 'block') {
-      // console.log("Third Principle – Part 2");
+    if(s.select('#p4_3').style('display') == 'block') {
+      // console.log("Fourth Principle – Part 3");
 
       //Background
-      s.background('#DAFF7D');
+      s.background('#FF83FF');
 
       //Page number
       s.noStroke();
@@ -35,7 +35,7 @@ var p3_2 = function(s) {
       s.textFont('Futura');
       s.textStyle(s.BOLD);
       s.textSize(16);
-      s.text('2 / 7', 20, s.windowHeight - 20);
+      s.text('4 / 7', 20, s.windowHeight - 20);
 
       //Menu
       s.textAlign(s.LEFT);
@@ -49,48 +49,43 @@ var p3_2 = function(s) {
 
       //Title
       s.fill('#FFFFFF');
+      s.textSize(45);
       s.textStyle(s.NORMAL);
+      s.text('...Y ACTÚA CON', s.windowWidth/10, s.windowHeight/4 + 60);
+      s.fill('#ffff85');
       s.textSize(55);
-      s.text('EL', s.windowWidth/10, s.windowHeight/4);
       s.textStyle(s.BOLD);
-      s.textSize(60);
-      s.text('FEMINISMO', s.windowWidth/10, s.windowHeight/4 + 70);
-      s.textSize(35);
-      s.textStyle(s.NORMAL);
-      s.text('LE DA LA BIENVENIDA AL', s.windowWidth/10, s.windowHeight/4 + 120);
-      s.fill('#04E973');
-      s.textSize(60);
-      s.textStyle(s.BOLD);
-      s.text('ESCEPTICISMO',  s.windowWidth/10, s.windowHeight/4 + 190);
+      s.text('RACIONALIDAD',  s.windowWidth/10, s.windowHeight/4 + 120);
 
       //Image
-      s.image(img, s.windowWidth/2, s.windowHeight/6 - 100);
+      s.image(img, s.windowWidth/2 - 50, s.windowHeight/6 - 60);
       s.blendMode(s.OVERLAY);
-      s.rect(s.windowWidth/2 + 120, s.windowHeight/2 + 85, 80, 25);
+      s.rect(s.windowWidth/2 + 120, s.windowHeight/2 + 80, 80, 25);
 
       //Triangle
       s.blendMode(s.NORMAL);
+      s.fill('#ff8385');
       s.triangle(5*s.windowWidth/6 - 20, s.windowHeight, 5*s.windowWidth/6 - 20, s.windowHeight/2 + 50, s.windowWidth, s.windowHeight);
 
       //Paragraph
-      s.fill('#04E973');
+      s.fill('#FFFFFF');
       s.textStyle(s.ITALIC);
-      s.textSize(18);
-      s.text('Sin duda hay personas que se oponen al feminismo o que sencillamente no se sienten parte del movimiento. Esta oposición –o mejor, este escepticismo– transforma a los feminismos al generar debate en torno a sus prácticas y manifestaciones. Esto aporta dinamismo al movimiento: lo cuestiona y, en consecuencia, o lo transforma hacia un movimiento más incluyente o lo afirma en sus convicciones como lucha social. Atender al escepticismo e invitar a la duda no es un acto de traición; es un acto de responsabilidad por concebir movimientos sociales más plurales y en constante actualización.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 580, 600);
+      s.textSize(16);
+      s.text('Algunos relacionan el presunto exceso de sensibilidad con una falta de racionalidad en el movimiento, acusándolo así de no ser pertinente en discusiones políticas. Dejando para otro espacio la discusión sobre si lo emocional es pertinente o no en la política –yo creo que sí–, es importante hacer notar los aportes teóricos de feministas a áreas del conocimiento como el derecho, la ciencia política, la filosofía y muchas otras más. Estos aportes se han hecho desde lo académico y desde lo profesional, lo cual ha incidido en las transformaciones sociales, económicas, políticas y culturales de muchos países hacia una sociedad igualitaria en todos los ámbitos de la vida en sociedad.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 610, 600);
 
       //Arrow
-      var mx = s.windowWidth - 60;
-      var my = s.windowHeight/2 - 10;
-
+      var mx = s.windowWidth/2 - 10;
+      var my = s.windowHeight - 60;
       s.fill(arrowColor);
+      s.noStroke();
       s.beginShape();
       s.vertex(mx, my);
-      s.vertex(mx, my - 20);
-      s.vertex(mx + 20, my - 20);
-      s.vertex(mx + 20, my - 30);
-      s.vertex(mx + 40, my - 10);
-      s.vertex(mx + 20, my + 10);
       s.vertex(mx + 20, my);
+      s.vertex(mx + 20, my + 20);
+      s.vertex(mx + 30, my + 20);
+      s.vertex(mx + 10, my + 40);
+      s.vertex(mx - 10, my + 20);
+      s.vertex(mx, my + 20);
       s.vertex(mx, my);
       s.endShape(s.CLOSE);
     }
@@ -121,25 +116,25 @@ var p3_2 = function(s) {
   };
 
   s.mouseInsideArrow = function() {
-    var mx = s.windowWidth - 60;
-    var my = s.windowHeight/2 - 10;
+    var mx = s.windowWidth/2 - 10;;
+    var my = s.windowHeight - 60;
 
     //Check if the mouse is inside the arrow's rectangle
     var dx = s.mouseX - mx;
     var dy = s.mouseY - my;
-    if(0 < dx && dx < 20 && -20 < dy && dy < 0) {
+    if(0 < dx && dx < 20 && 0 < dy && dy < 20) {
       return true;
     } else {
-      //Check if the mouse is inside the arrow's lower triangle
-      var lx = 20 - Math.abs(s.mouseX - mx - 20);
-      var ly = Math.abs(s.mouseY - my + 10);
+      //Check if the mouse is inside the arrow's left triangle
+      var lx = Math.abs(s.mouseX - mx + 10);
+      var ly = Math.abs(s.mouseY - my - 20);
       if(lx < 20 && ly < 20 && lx > ly) {
         return true;
       } else {
-        //Check if the mouse is inside the arrow's upper triangle
-        var ux = 20 - Math.abs(s.mouseX - mx - 20);
-        var uy = Math.abs(s.mouseY - my + 20);
-        if(ux < 20 && uy < 20 && ux > uy) {
+        //Check if the mouse is inside the arrow's right triangle
+        var rx = 20 - Math.abs(s.mouseX - mx - 10);
+        var ry = Math.abs(s.mouseY - my - 20);
+        if(rx < 20 && ry < 20 && rx > ry) {
           return true;
         }
         return false;
@@ -169,27 +164,27 @@ var p3_2 = function(s) {
       s.cursor(s.HAND);
     } else {
       s.cursor(s.ARROW);
-      arrowColor = '#04E973';
-      homeColor = '#04E973';
-      principlesColor = '#04E973';
+      arrowColor = '#ffff85';
+      homeColor = '#ffff85';
+      principlesColor = '#ffff85';
     }
   };
 
   s.next = function() {
-    s.select('#p4_1').show();
-    s.select('#p2_2').hide();
+    s.select('#p5_1').show();
+    s.select('#p4_3').hide();
   };
 
   s.home = function() {
     s.select('#home').show();
-    s.select('#p3_2').hide();
+    s.select('#p4_3').hide();
   };
 
   s.first = function() {
     s.select('#p1_1').show();
-    s.select('#p3_2').hide();
+    s.select('#p4_3').hide();
   };
 
 }
 
-var p3_2 = new p5(p3_2, 'p3_2');
+var p4_3 = new p5(p4_3, 'p4_3');

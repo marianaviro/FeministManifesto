@@ -1,4 +1,4 @@
-var p3_2 = function(s) {
+var p4_2 = function(s) {
 
   var homeColor;
   var principlesColor;
@@ -6,14 +6,14 @@ var p3_2 = function(s) {
   var img;
 
   s.setup = function() {
-    arrowColor = '#04E973';
-    homeColor = '#04E973';
-    principlesColor = '#04E973';
-    img = s.loadImage('http://localhost:8080/Escepticismo.png');
+    arrowColor = '#ffff85';
+    homeColor = '#ffff85';
+    principlesColor = '#ffff85';
+    img = s.loadImage('http://localhost:8080/Sensibilidad.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
-    s.background('#DAFF7D');
+    s.background('#FF83FF');
     s.noStroke();
     s.fill('#FFFFFF');
     s.textFont('Futura');
@@ -23,11 +23,11 @@ var p3_2 = function(s) {
 
   s.draw = function() {
 
-    if(s.select('#p3_2').style('display') == 'block') {
-      // console.log("Third Principle – Part 2");
+    if(s.select('#p4_2').style('display') == 'block') {
+      // console.log("Fourth Principle – Part 2");
 
       //Background
-      s.background('#DAFF7D');
+      s.background('#FF83FF');
 
       //Page number
       s.noStroke();
@@ -35,7 +35,7 @@ var p3_2 = function(s) {
       s.textFont('Futura');
       s.textStyle(s.BOLD);
       s.textSize(16);
-      s.text('2 / 7', 20, s.windowHeight - 20);
+      s.text('4 / 7', 20, s.windowHeight - 20);
 
       //Menu
       s.textAlign(s.LEFT);
@@ -48,35 +48,32 @@ var p3_2 = function(s) {
       s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
       //Title
-      s.fill('#FFFFFF');
-      s.textStyle(s.NORMAL);
       s.textSize(55);
-      s.text('EL', s.windowWidth/10, s.windowHeight/4);
-      s.textStyle(s.BOLD);
-      s.textSize(60);
-      s.text('FEMINISMO', s.windowWidth/10, s.windowHeight/4 + 70);
-      s.textSize(35);
+      s.fill('#FFFFFF');
+      s.text('EL FEMINISMO', s.windowWidth/10, s.windowHeight/4);
+      s.textSize(45);
       s.textStyle(s.NORMAL);
-      s.text('LE DA LA BIENVENIDA AL', s.windowWidth/10, s.windowHeight/4 + 120);
-      s.fill('#04E973');
+      s.text('COMPRENDE CON', s.windowWidth/10, s.windowHeight/4 + 60);
+      s.fill('#ffff85');
       s.textSize(60);
       s.textStyle(s.BOLD);
-      s.text('ESCEPTICISMO',  s.windowWidth/10, s.windowHeight/4 + 190);
+      s.text('SENSIBILIDAD...',  s.windowWidth/10, s.windowHeight/4 + 130);
 
       //Image
-      s.image(img, s.windowWidth/2, s.windowHeight/6 - 100);
+      s.image(img, s.windowWidth/2 - 170, s.windowHeight/6 - 80);
       s.blendMode(s.OVERLAY);
-      s.rect(s.windowWidth/2 + 120, s.windowHeight/2 + 85, 80, 25);
+      s.rect(s.windowWidth/2 + 120, s.windowHeight/2 + 80, 80, 25);
 
       //Triangle
       s.blendMode(s.NORMAL);
+      s.fill('#ff8385');
       s.triangle(5*s.windowWidth/6 - 20, s.windowHeight, 5*s.windowWidth/6 - 20, s.windowHeight/2 + 50, s.windowWidth, s.windowHeight);
 
       //Paragraph
-      s.fill('#04E973');
+      s.fill('#FFFFFF');
       s.textStyle(s.ITALIC);
-      s.textSize(18);
-      s.text('Sin duda hay personas que se oponen al feminismo o que sencillamente no se sienten parte del movimiento. Esta oposición –o mejor, este escepticismo– transforma a los feminismos al generar debate en torno a sus prácticas y manifestaciones. Esto aporta dinamismo al movimiento: lo cuestiona y, en consecuencia, o lo transforma hacia un movimiento más incluyente o lo afirma en sus convicciones como lucha social. Atender al escepticismo e invitar a la duda no es un acto de traición; es un acto de responsabilidad por concebir movimientos sociales más plurales y en constante actualización.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 580, 600);
+      s.textSize(16);
+      s.text('La lucha feminista ha sido acusada de ser demasiado emocional en sus manifestaciones. Aunque esta percepción probablemente se deriva de estereotipos que presionan a las mujeres a ser sumisas y a no ser vehementes, es cierto que al interior de los feminismos se presentan emociones fuertes que surgen a partir de las experiencias injustas y violentas que han vivido las víctimas. Es apenas natural –y en mi opinión, necesario– que las emociones tengan un papel protagónico en las luchas feministas, pues esto permite la comprensión sensible de las posiciones de otros, genera empatía entre las personas y permite hacer catarsis de las injusticias que hemos vivido.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 610, 600);
 
       //Arrow
       var mx = s.windowWidth - 60;
@@ -93,30 +90,6 @@ var p3_2 = function(s) {
       s.vertex(mx + 20, my);
       s.vertex(mx, my);
       s.endShape(s.CLOSE);
-    }
-  };
-
-  s.mouseInsideHome = function() {
-    var hx1 = s.windowWidth/2 - 110;
-    var hx2 = s.windowWidth/2 - 50;
-    var hy1 = 10;
-    var hy2 = 50;
-    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  s.mouseInsidePrinciples = function() {
-    var hx1 = s.windowWidth/2;
-    var hx2 = s.windowWidth/2 + 100;
-    var hy1 = 10;
-    var hy2 = 50;
-    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
-      return true;
-    } else {
-      return false;
     }
   };
 
@@ -147,6 +120,30 @@ var p3_2 = function(s) {
     }
   };
 
+  s.mouseInsideHome = function() {
+    var hx1 = s.windowWidth/2 - 110;
+    var hx2 = s.windowWidth/2 - 50;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  s.mouseInsidePrinciples = function() {
+    var hx1 = s.windowWidth/2;
+    var hx2 = s.windowWidth/2 + 100;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   s.mouseClicked  = function() {
     if(s.mouseInsideArrow()){
       s.next();
@@ -169,27 +166,27 @@ var p3_2 = function(s) {
       s.cursor(s.HAND);
     } else {
       s.cursor(s.ARROW);
-      arrowColor = '#04E973';
-      homeColor = '#04E973';
-      principlesColor = '#04E973';
+      arrowColor = '#ffff85';
+      homeColor = '#ffff85';
+      principlesColor = '#ffff85';
     }
   };
 
   s.next = function() {
-    s.select('#p4_1').show();
-    s.select('#p2_2').hide();
+    s.select('#p4_3').show();
+    s.select('#p4_2').hide();
   };
 
   s.home = function() {
     s.select('#home').show();
-    s.select('#p3_2').hide();
+    s.select('#p4_2').hide();
   };
 
   s.first = function() {
     s.select('#p1_1').show();
-    s.select('#p3_2').hide();
+    s.select('#p4_2').hide();
   };
 
 }
 
-var p3_2 = new p5(p3_2, 'p3_2');
+var p4_2 = new p5(p4_2, 'p4_2');
