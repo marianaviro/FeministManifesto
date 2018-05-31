@@ -1,4 +1,4 @@
-var thirdPrinciple = function(s) {
+var firstPrinciple = function(s) {
 
   var color;
   var pluralColor;
@@ -162,10 +162,10 @@ var thirdPrinciple = function(s) {
   };
 
   s.down = function() {
-    s.select('#fourth').show();
-    s.select('#third').hide();
+    s.select('#second').show();
+    s.select('#first').hide();
   };
 
 }
 
-var three = new p5(thirdPrinciple, 'third');
+var one = new p5(firstPrinciple, 'first');
