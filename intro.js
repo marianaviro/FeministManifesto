@@ -6,11 +6,7 @@ var intro = function(s) {
   var homeColor2;
   var principlesColor1;
   var principlesColor2;
-  var logo;
-
-  // s.preload = function() {
-  //   logo = s.loadImage('http://localhost:8080/logo.png');
-  // };
+  var img;
 
 
   s.setup = function() {
@@ -20,7 +16,7 @@ var intro = function(s) {
     homeColor2 = '#21f4f4';
     principlesColor1 = '#ff83ff';
     principlesColor2 = '#21f4f4';
-    // logo = s.loadImage('http://localhost:8080/logo.png');
+    img = s.loadImage('http://localhost:8080/TheFutureIsFeminist.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
@@ -28,13 +24,15 @@ var intro = function(s) {
   };
 
   s.draw = function() {
+    s.noStroke();
+
     //Background
     s.blendMode(s.NORMAL);
     s.background('#FFFFFF');
-    // s.image(logo, s.windowWidth/2 - 250, s.windowHeight/2 - 250, 500, 500);
 
     //Menu
     s.noStroke();
+    s.textAlign(s.LEFT);
     s.textFont('Futura');
     s.blendMode(s.MULTIPLY);
     s.fill(homeColor1);
@@ -59,7 +57,7 @@ var intro = function(s) {
 
     //Arrow
     var mx = s.windowWidth - 60;
-    var my = s.windowHeight/2 - 10;
+    var my = s.windowHeight/2;
 
     s.fill(arrowColor1);
     s.beginShape();
@@ -84,11 +82,62 @@ var intro = function(s) {
     s.vertex(mx + 21, my);
     s.vertex(mx, my);
     s.endShape(s.CLOSE);
+
+    //Rectangle
+    s.fill('#ff83ff');
+    s.beginShape();
+    s.vertex(0, 265);
+    s.vertex(s.windowWidth, 265);
+    s.vertex(s.windowWidth, s.windowHeight);
+    s.vertex(0, s.windowHeight);
+    s.endShape();
+
+    //Image
+    s.blendMode(s.NORMAL);
+    s.image(img, -200, s.windowHeight - 520);
+
+    //Triangle
+    s.blendMode(s.MULTIPLY);
+    s.fill('#21f4f4');
+    s.beginShape();
+    s.vertex(0, 0);
+    s.vertex(0, s.windowHeight);
+    s.vertex(s.windowWidth/3, 0);
+    s.endShape();
+
+    //Title 1
+    s.textFont('Futura');
+    s.fill('#21f4f4');
+    s.textStyle(s.BOLD);
+    s.textSize(120);
+    s.text('T', s.windowWidth/2, 300);
+    s.text('O', s.windowWidth/2 + 75, 300);
+    s.text('D', s.windowWidth/2 + 200, 300);
+    s.text('_', s.windowWidth/2 + 310, 280);
+    s.text('S', s.windowWidth/2 + 400, 300);
+
+    //Title 2
+    s.fill('#ff83ff');
+    s.textSize(120);
+    s.text('T', s.windowWidth/2 + 10, 310);
+    s.text('O', s.windowWidth/2 + 85, 310);
+    s.text('D', s.windowWidth/2 + 210, 310);
+    s.text('_', s.windowWidth/2 + 320, 290);
+    s.text('S', s.windowWidth/2 + 410, 310);
+
+    //Paragraph
+    s.blendMode(s.NORMAL);
+    s.fill('#FFFFFF');
+    s.textStyle(s.ITALIC);
+    s.textSize(16);
+    s.textAlign(s.CENTER);
+    s.text('TOD_S es una plataforma que nació de mi interés por el feminismo y como una suerte de catarsis con la que buscaba sublimar experiencias negativas y dolorosas que viví desde mi lugar como mujer y desde la expresión de mi feminidad; a raíz de estas experiencias decidí contribuir de alguna forma a este movimiento. La necesidad de ubicarme en el vasto universo de la lucha feminista culminó en este proyecto, que es un manifiesto digital en donde exploro las posibilidades que he identificado en el feminismo. Esta es mi mirada. Y aunque es modesta y susceptible al cambio, es el resultado de un trabajo arduo por comprender lo que une y separa no solo a quienes nos consideramos feministas, sino –especialmente– a quienes no. Bienvenid_s tod_s.', s.windowWidth/2 - 5, 400, 500, 400);
+
   };
 
   s.mouseInsideArrow = function() {
     var mx = s.windowWidth - 60;
-    var my = s.windowHeight/2 - 10;
+    var my = s.windowHeight/2;
 
     //Check if the mouse is inside the arrow's rectangle
     var dx = s.mouseX - mx;
@@ -173,7 +222,7 @@ var intro = function(s) {
   };
 
   s.next = function() {
-    s.select('#tut1').show();
+    s.select('#tutorial').show();
     s.select('#intro').hide();
   };
 
