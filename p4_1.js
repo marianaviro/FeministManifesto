@@ -5,12 +5,19 @@ var p4_1 = function(s) {
   var arrowColor;
   var homeColor;
   var principlesColor;
+  var song;
+  var playing;
+
+  s.preload = function() {
+    song = s.loadSound('http://localhost:8080/song.mp3');
+  }
 
   s.setup = function() {
     arrowColor = '#ffff85';
     homeColor = '#ffff85';
     principlesColor = '#ffff85';
     showArrow = true;
+    playing = false;
 
     s.createCanvas(s.displayWidth, s.displayHeight);
     s.background('#FF83FF');
@@ -26,6 +33,11 @@ var p4_1 = function(s) {
 
     if(s.select('#p4_1').style('display') == 'block') {
       // console.log("Fourth Principle – Part 1");
+
+      if(!playing) {
+        song.play();
+        playing = true;
+      }
 
       //Background
       s.background('#FF83FF');
@@ -75,6 +87,10 @@ var p4_1 = function(s) {
 
       //Middle rectangle
       s.rect(x1 + m, y1, x2 - x1 - (2*m), 300);
+
+      //sound
+      var vol = s.map(mo, s.windowHeight, 0, 0, 1);
+      song.setVolume(vol);
 
       //Principle
       s.textFont('Futura');
@@ -204,16 +220,22 @@ var p4_1 = function(s) {
   };
 
   s.next = function() {
+    song.stop();
+    playing = false;
     s.select('#p4_2').show();
     s.select('#p4_1').hide();
   };
 
   s.home = function() {
+    song.stop();
+    playing = false;
     s.select('#home').show();
     s.select('#p4_1').hide();
   };
 
   s.first = function() {
+    song.stop();
+    playing = false;
     s.select('#p1_1').show();
     s.select('#p4_1').hide();
   };
