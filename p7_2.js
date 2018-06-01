@@ -199,7 +199,9 @@ var p7_2 = function(s) {
   };
 
   s.keyTyped = function() {
-    currentWord = currentWord + s.key;
+    if(s.select('#p7_2').style('display') == 'block') {
+      currentWord = currentWord + s.key;
+    }
   }
 
   s.send = function() {
