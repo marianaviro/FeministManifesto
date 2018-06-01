@@ -14,7 +14,7 @@ var p6_3 = function(s) {
     homeColor = '#e61dff';
     principlesColor = '#e61dff';
     arrowColor = '#e61dff';
-    challenge = private_challenges[Math.floor(Math.random() * private_challenges.length)];
+    challenge = collective_challenges[Math.floor(Math.random() * collective_challenges.length)];
     seen = false;
 
     //Canvas
@@ -220,7 +220,7 @@ var p6_3 = function(s) {
   };
 
   s.another = function() {
-    challenge = private_challenges[Math.floor(Math.random() * private_challenges.length)];
+    challenge = collective_challenges[Math.floor(Math.random() * collective_challenges.length)];
   };
 
   s.share = function() {
