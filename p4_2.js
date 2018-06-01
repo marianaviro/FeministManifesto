@@ -76,43 +76,43 @@ var p4_2 = function(s) {
       s.text('La lucha feminista ha sido acusada de ser demasiado emocional en sus manifestaciones. Aunque esta percepción probablemente se deriva de estereotipos que presionan a las mujeres a ser sumisas y a no ser vehementes, es cierto que al interior de los feminismos se presentan emociones fuertes que surgen a partir de las experiencias injustas y violentas que han vivido las víctimas. Es apenas natural –y en mi opinión, necesario– que las emociones tengan un papel protagónico en las luchas feministas, pues esto permite la comprensión sensible de las posiciones de otros, genera empatía entre las personas y permite hacer catarsis de las injusticias que hemos vivido.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 610, 600);
 
       //Arrow
-      var mx = s.windowWidth - 60;
-      var my = s.windowHeight/2 - 10;
-
+      var mx = s.windowWidth/2 - 10;
+      var my = s.windowHeight - 60;
       s.fill(arrowColor);
+      s.noStroke();
       s.beginShape();
       s.vertex(mx, my);
-      s.vertex(mx, my - 20);
-      s.vertex(mx + 20, my - 20);
-      s.vertex(mx + 20, my - 30);
-      s.vertex(mx + 40, my - 10);
-      s.vertex(mx + 20, my + 10);
       s.vertex(mx + 20, my);
+      s.vertex(mx + 20, my + 20);
+      s.vertex(mx + 30, my + 20);
+      s.vertex(mx + 10, my + 40);
+      s.vertex(mx - 10, my + 20);
+      s.vertex(mx, my + 20);
       s.vertex(mx, my);
       s.endShape(s.CLOSE);
     }
   };
 
   s.mouseInsideArrow = function() {
-    var mx = s.windowWidth - 60;
-    var my = s.windowHeight/2 - 10;
+    var mx = s.windowWidth/2 - 10;;
+    var my = s.windowHeight - 60;
 
     //Check if the mouse is inside the arrow's rectangle
     var dx = s.mouseX - mx;
     var dy = s.mouseY - my;
-    if(0 < dx && dx < 20 && -20 < dy && dy < 0) {
+    if(0 < dx && dx < 20 && 0 < dy && dy < 20) {
       return true;
     } else {
-      //Check if the mouse is inside the arrow's lower triangle
-      var lx = 20 - Math.abs(s.mouseX - mx - 20);
-      var ly = Math.abs(s.mouseY - my + 10);
+      //Check if the mouse is inside the arrow's left triangle
+      var lx = Math.abs(s.mouseX - mx + 10);
+      var ly = Math.abs(s.mouseY - my - 20);
       if(lx < 20 && ly < 20 && lx > ly) {
         return true;
       } else {
-        //Check if the mouse is inside the arrow's upper triangle
-        var ux = 20 - Math.abs(s.mouseX - mx - 20);
-        var uy = Math.abs(s.mouseY - my + 20);
-        if(ux < 20 && uy < 20 && ux > uy) {
+        //Check if the mouse is inside the arrow's right triangle
+        var rx = 20 - Math.abs(s.mouseX - mx - 10);
+        var ry = Math.abs(s.mouseY - my - 20);
+        if(rx < 20 && ry < 20 && rx > ry) {
           return true;
         }
         return false;

@@ -55,12 +55,6 @@ var p1_1 = function(s) {
       s.strokeWeight(20);
       s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
 
-      //Rectangle
-      s.fill('#FF83FF');
-      s.noStroke();
-      s.strokeWeight(20);
-      s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
-
       //Principle
       s.noStroke();
       s.textFont('Futura');

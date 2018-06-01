@@ -58,7 +58,8 @@ var p4_1 = function(s) {
       var x2 = s.windowWidth/2 + 100;
       var y1 = s.windowHeight/2 - 160;
       var y2 = s.windowHeight/2 + 140;
-      var m = s.map(s.mouseY, s.windowHeight, 0, -5, 110);
+      var mo = s.constrain(s.mouseY, 0, s.windowHeight);
+      var m = s.map(mo, s.windowHeight, 0, -5, 110);
 
       //Right arc
       s.beginShape();
@@ -72,7 +73,7 @@ var p4_1 = function(s) {
       s.bezierVertex(x1 - m, y1, x1 - m, y2, x1 + m, y2);
       s.endShape();
 
-      //Midle rectangle
+      //Middle rectangle
       s.rect(x1 + m, y1, x2 - x1 - (2*m), 300);
 
       //Principle

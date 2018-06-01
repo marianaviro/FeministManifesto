@@ -76,7 +76,6 @@ var p3_1 = function(s) {
       //Rectangle
       s.fill('#04E973');
       s.text('P R I N C I P I O   # 3', s.windowWidth/2 - 75, s.windowHeight/2 - 170);
-      s.strokeWeight(20);
       s.rect(s.windowWidth/2 - 110, s.windowHeight/2 - 160, 210, 300);
 
       //Principle

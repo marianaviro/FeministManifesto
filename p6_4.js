@@ -1,4 +1,4 @@
-var p4_3 = function(s) {
+var p6_4 = function(s) {
 
   var homeColor;
   var principlesColor;
@@ -6,14 +6,14 @@ var p4_3 = function(s) {
   var img;
 
   s.setup = function() {
-    arrowColor = '#ffff85';
-    homeColor = '#ffff85';
-    principlesColor = '#ffff85';
-    img = s.loadImage('http://localhost:8080/Racionalidad.png');
+    homeColor = '#e61dff';
+    principlesColor = '#e61dff';
+    arrowColor = '#e61dff';
+    img = s.loadImage('http://localhost:8080/WomanPower.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
-    s.background('#FF83FF');
+    s.background('#731DD3');
     s.noStroke();
     s.fill('#FFFFFF');
     s.textFont('Futura');
@@ -23,11 +23,11 @@ var p4_3 = function(s) {
 
   s.draw = function() {
 
-    if(s.select('#p4_3').style('display') == 'block') {
-      // console.log("Fourth Principle – Part 3");
+    if(s.select('#p6_4').style('display') == 'block') {
+      // console.log("Sixth Principle – Part 4");
 
       //Background
-      s.background('#FF83FF');
+      s.background('#731DD3');
 
       //Page number
       s.noStroke();
@@ -35,7 +35,7 @@ var p4_3 = function(s) {
       s.textFont('Futura');
       s.textStyle(s.BOLD);
       s.textSize(16);
-      s.text('4 / 7', 20, s.windowHeight - 20);
+      s.text('6 / 7', 20, s.windowHeight - 20);
 
       //Menu
       s.textAlign(s.LEFT);
@@ -48,30 +48,40 @@ var p4_3 = function(s) {
       s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
       //Title
+      s.noStroke();
+      s.textFont('Futura');
       s.fill('#FFFFFF');
-      s.textSize(45);
-      s.textStyle(s.NORMAL);
-      s.text('...Y ACTÚA CON', s.windowWidth/10, s.windowHeight/4 + 60);
-      s.fill('#ffff85');
-      s.textSize(55);
+      s.textSize(37);
+      s.text('EL FEMINISMO ES', s.windowWidth/10, s.windowHeight/2 - 200);
       s.textStyle(s.BOLD);
-      s.text('RACIONALIDAD',  s.windowWidth/10, s.windowHeight/4 + 120);
+      s.textSize(60);
+
+      s.fill('#e61dff');
+      s.text('COLECTIVO', s.windowWidth/10, s.windowHeight/2 - 130);
+      s.textStyle(s.BOLD);
+      s.textSize(72);
+      s.fill('#e61dff');
+      s.text('PRIVADO', s.windowWidth/10, s.windowHeight/2 + 10);
+      s.fill('#FFFFFF');
+      s.textStyle(s.NORMAL);
+      s.textSize(52);
+      s.text('Y TAMBIÉN ES', s.windowWidth/10, s.windowHeight/2 - 65);
 
       //Image
-      s.image(img, s.windowWidth/2 - 50, s.windowHeight/6 - 60);
+      s.image(img, s.windowWidth/2 - 100, s.windowHeight/6 - 90);
       s.blendMode(s.OVERLAY);
-      s.rect(s.windowWidth/2 + 120, s.windowHeight/2 + 80, 80, 25);
+      s.rect(s.windowWidth/2 + 200, s.windowHeight/2 + 30, 80, 25);
 
       //Triangle
       s.blendMode(s.NORMAL);
-      s.fill('#ff8385');
+      s.fill('#e61dff');
       s.triangle(5*s.windowWidth/6 - 20, s.windowHeight, 5*s.windowWidth/6 - 20, s.windowHeight/2 + 50, s.windowWidth, s.windowHeight);
 
       //Paragraph
       s.fill('#FFFFFF');
       s.textStyle(s.ITALIC);
-      s.textSize(16);
-      s.text('Algunos relacionan el presunto exceso de sensibilidad con una falta de racionalidad en el movimiento, acusándolo así de no ser pertinente en discusiones políticas. Dejando para otro espacio la discusión sobre si lo emocional es pertinente o no en la política –yo creo que sí–, es importante hacer notar los aportes teóricos de feministas a áreas del conocimiento como el derecho, la ciencia política, la filosofía y muchas otras más. Estos aportes se han hecho desde lo académico y desde lo profesional, lo cual ha incidido en las transformaciones sociales, económicas, políticas y culturales de muchos países hacia una sociedad igualitaria en todos los ámbitos de la vida en sociedad.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 610, 600);
+      s.textSize(18);
+      s.text('En la lucha feminista actuamos colectivamente porque reconocemos la importancia política de nuestro movimiento, pero también actuamos en privado porque reconocemos la naturaleza cotidiana de la desigualdad. Actuar colectivamente implica articularse con otras personas y participar en debates o manifestaciones públicas, mientras que actuar en privado implica reflexionar sobre nuestras prácticas cotidianas y generar cambios desde nuestra individualidad.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 580, 600);
 
       //Arrow
       var mx = s.windowWidth - 60;
@@ -88,6 +98,30 @@ var p4_3 = function(s) {
       s.vertex(mx + 20, my);
       s.vertex(mx, my);
       s.endShape(s.CLOSE);
+    }
+  };
+
+  s.mouseInsideHome = function() {
+    var hx1 = s.windowWidth/2 - 110;
+    var hx2 = s.windowWidth/2 - 50;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  s.mouseInsidePrinciples = function() {
+    var hx1 = s.windowWidth/2;
+    var hx2 = s.windowWidth/2 + 100;
+    var hy1 = 10;
+    var hy2 = 50;
+    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
+      return true;
+    } else {
+      return false;
     }
   };
 
@@ -118,30 +152,6 @@ var p4_3 = function(s) {
     }
   };
 
-  s.mouseInsideHome = function() {
-    var hx1 = s.windowWidth/2 - 110;
-    var hx2 = s.windowWidth/2 - 50;
-    var hy1 = 10;
-    var hy2 = 50;
-    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  s.mouseInsidePrinciples = function() {
-    var hx1 = s.windowWidth/2;
-    var hx2 = s.windowWidth/2 + 100;
-    var hy1 = 10;
-    var hy2 = 50;
-    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   s.mouseClicked  = function() {
     if(s.mouseInsideArrow()){
       s.next();
@@ -164,27 +174,27 @@ var p4_3 = function(s) {
       s.cursor(s.HAND);
     } else {
       s.cursor(s.ARROW);
-      arrowColor = '#ffff85';
-      homeColor = '#ffff85';
-      principlesColor = '#ffff85';
+      arrowColor = '#e61dff';
+      homeColor = '#e61dff';
+      principlesColor = '#e61dff';
     }
   };
 
   s.next = function() {
-    s.select('#p5_1').show();
-    s.select('#p4_3').hide();
+    s.select('#p7_1').show();
+    s.select('#p6_4').hide();
   };
 
   s.home = function() {
     s.select('#home').show();
-    s.select('#p4_3').hide();
+    s.select('#p6_4').hide();
   };
 
   s.first = function() {
     s.select('#p1_1').show();
-    s.select('#p4_3').hide();
+    s.select('#p6_4').hide();
   };
 
 }
 
-var p4_3 = new p5(p4_3, 'p4_3');
+var p6_4 = new p5(p6_4, 'p6_4');

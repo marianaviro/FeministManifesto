@@ -1,4 +1,4 @@
-var p4_3 = function(s) {
+var p5_2 = function(s) {
 
   var homeColor;
   var principlesColor;
@@ -6,14 +6,14 @@ var p4_3 = function(s) {
   var img;
 
   s.setup = function() {
-    arrowColor = '#ffff85';
-    homeColor = '#ffff85';
-    principlesColor = '#ffff85';
-    img = s.loadImage('http://localhost:8080/Racionalidad.png');
+    homeColor = '#21f4f4';
+    principlesColor = '#21f4f4';
+    arrowColor = '#21f4f4';
+    img = s.loadImage('http://localhost:8080/RealMen.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
-    s.background('#FF83FF');
+    s.background('#217df4');
     s.noStroke();
     s.fill('#FFFFFF');
     s.textFont('Futura');
@@ -23,11 +23,11 @@ var p4_3 = function(s) {
 
   s.draw = function() {
 
-    if(s.select('#p4_3').style('display') == 'block') {
-      // console.log("Fourth Principle – Part 3");
+    if(s.select('#p5_2').style('display') == 'block') {
+      // console.log("First Principle – Part 3");
 
       //Background
-      s.background('#FF83FF');
+      s.background('#217df4');
 
       //Page number
       s.noStroke();
@@ -35,7 +35,7 @@ var p4_3 = function(s) {
       s.textFont('Futura');
       s.textStyle(s.BOLD);
       s.textSize(16);
-      s.text('4 / 7', 20, s.windowHeight - 20);
+      s.text('5 / 7', 20, s.windowHeight - 20);
 
       //Menu
       s.textAlign(s.LEFT);
@@ -48,30 +48,35 @@ var p4_3 = function(s) {
       s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
       //Title
+      s.textSize(55);
       s.fill('#FFFFFF');
+      s.text('EL FEMINISMO', s.windowWidth/10, s.windowHeight/4);
       s.textSize(45);
       s.textStyle(s.NORMAL);
-      s.text('...Y ACTÚA CON', s.windowWidth/10, s.windowHeight/4 + 60);
-      s.fill('#ffff85');
-      s.textSize(55);
+      s.text('RECONOCE Y', s.windowWidth/10, s.windowHeight/4 + 60);
+      s.textSize(45);
+      s.textStyle(s.NORMAL);
+      s.text('TRABAJA EN SUS', s.windowWidth/10, s.windowHeight/4 + 120);
+      s.fill('#21f4f4');
+      s.textSize(50);
       s.textStyle(s.BOLD);
-      s.text('RACIONALIDAD',  s.windowWidth/10, s.windowHeight/4 + 120);
+      s.text('CONTRADICCIONES',  s.windowWidth/10, s.windowHeight/4 + 180);
 
       //Image
-      s.image(img, s.windowWidth/2 - 50, s.windowHeight/6 - 60);
+      s.image(img, s.windowWidth/2 - 65, s.windowHeight/6 - 90);
       s.blendMode(s.OVERLAY);
       s.rect(s.windowWidth/2 + 120, s.windowHeight/2 + 80, 80, 25);
 
       //Triangle
       s.blendMode(s.NORMAL);
-      s.fill('#ff8385');
+      s.fill('#FFFFFF');
       s.triangle(5*s.windowWidth/6 - 20, s.windowHeight, 5*s.windowWidth/6 - 20, s.windowHeight/2 + 50, s.windowWidth, s.windowHeight);
 
       //Paragraph
       s.fill('#FFFFFF');
       s.textStyle(s.ITALIC);
-      s.textSize(16);
-      s.text('Algunos relacionan el presunto exceso de sensibilidad con una falta de racionalidad en el movimiento, acusándolo así de no ser pertinente en discusiones políticas. Dejando para otro espacio la discusión sobre si lo emocional es pertinente o no en la política –yo creo que sí–, es importante hacer notar los aportes teóricos de feministas a áreas del conocimiento como el derecho, la ciencia política, la filosofía y muchas otras más. Estos aportes se han hecho desde lo académico y desde lo profesional, lo cual ha incidido en las transformaciones sociales, económicas, políticas y culturales de muchos países hacia una sociedad igualitaria en todos los ámbitos de la vida en sociedad.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 610, 600);
+      s.textSize(18);
+      s.text('El feminismo como movimiento social está conformado por seres humanos que, en su complejidad, suelen presentar contradicciones entre sus ideas y sus prácticas. Más que pretender decantar la militancia para seleccionar personas extraordinariamente consecuentes, en la lucha feminista se propone la reflexión honesta sobre estas contradicciones –individuales y colectivas– para lograr una transformación constante del movimiento que permita mitigar esas contradicciones y ser más coherentes en nuestra cotidianidad.', s.windowWidth/3 - 50, s.windowHeight/4 + 330, 600, 600);
 
       //Arrow
       var mx = s.windowWidth - 60;
@@ -154,37 +159,37 @@ var p4_3 = function(s) {
 
   s.mouseMoved = function() {
     if(s.mouseInsideHome()) {
-      homeColor = '#FFFFFF';
+      homeColor = '#ff83ff';
       s.cursor(s.HAND);
     } else if(s.mouseInsidePrinciples()) {
-      principlesColor = '#FFFFFF';
+      principlesColor = '#ff83ff';
       s.cursor(s.HAND);
     } else if(s.mouseInsideArrow()) {
-      arrowColor = '#FFFFFF';
+      arrowColor = '#ff83ff';
       s.cursor(s.HAND);
     } else {
       s.cursor(s.ARROW);
-      arrowColor = '#ffff85';
-      homeColor = '#ffff85';
-      principlesColor = '#ffff85';
+      arrowColor = '#21f4f4';
+      homeColor = '#21f4f4';
+      principlesColor = '#21f4f4';
     }
   };
 
   s.next = function() {
-    s.select('#p5_1').show();
-    s.select('#p4_3').hide();
+    s.select('#p6_1').show();
+    s.select('#p5_2').hide();
   };
 
   s.home = function() {
     s.select('#home').show();
-    s.select('#p4_3').hide();
+    s.select('#p5_2').hide();
   };
 
   s.first = function() {
     s.select('#p1_1').show();
-    s.select('#p4_3').hide();
+    s.select('#p5_2').hide();
   };
 
 }
 
-var p4_3 = new p5(p4_3, 'p4_3');
+var p5_2 = new p5(p5_2, 'p5_2');
