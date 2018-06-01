@@ -1,4 +1,4 @@
-var colective_challenges = [
+var collective_challenges = [
     {
       "name": "BUSCA ALGÚN EVENTO FEMINISTA O CON ENFOQUE DE GÉNERO Y ASISTE."
     },

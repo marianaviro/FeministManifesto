@@ -6,6 +6,9 @@ var p9_1 = function(s) {
   var img;
   var restartColor1;
   var restartColor2;
+  var abc;
+  var letter;
+  var count;
 
   s.setup = function() {
     arrowColor = '#ffff85';
@@ -14,6 +17,9 @@ var p9_1 = function(s) {
     restartColor1 = '#ffff85';
     restartColor2 = '#ff8385';
     img = s.loadImage('http://localhost:8080/Redes.png');
+    abc = 'ABDEGHKOPRSUVXYZ234567890?=#&';
+    letter = abc.charAt(Math.floor(Math.random() * abc.length));
+    count = 0;
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
@@ -56,8 +62,11 @@ var p9_1 = function(s) {
       s.text('T', s.windowWidth/2 - 240, s.windowHeight/2 + 50);
       s.text('O', s.windowWidth/2 - 160, s.windowHeight/2 + 50);
       s.text('D', s.windowWidth/2 - 40, s.windowHeight/2 + 50);
-      s.text('_', s.windowWidth/2 + 70, s.windowHeight/2 + 30);
+      s.fill('#ff83ff');
+      s.text(letter, s.windowWidth/2 + 60, s.windowHeight/2 + 50);
+      s.fill('#ffff85');
       s.text('S', s.windowWidth/2 + 160, s.windowHeight/2 + 50);
+      s.currentLetter();
 
       //Paragraph
       s.textAlign(s.CENTER);
@@ -172,6 +181,14 @@ var p9_1 = function(s) {
       restartColor1 = '#ffff85';
       restartColor2 = '#ff8385';
     }
+  };
+
+  s.currentLetter = function() {
+    if(count == 30) {
+      letter = abc.charAt(Math.floor(Math.random() * abc.length));
+      count = 0;
+    }
+    count++;
   };
 
   s.next = function() {
