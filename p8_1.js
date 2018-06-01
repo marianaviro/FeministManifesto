@@ -1,47 +1,36 @@
-var p7_2 = function(s) {
+var p8_1 = function(s) {
 
-  var sendColor;
   var homeColor;
   var principlesColor;
   var arrowColor;
-  var struggles;
-  var currentWord;
+  var img;
 
   s.setup = function() {
-    sendColor = '#FFFFFF';
-    homeColor = '#217DF4';
-    principlesColor = '#217DF4';
-    arrowColor = '#217DF4';
-    struggles = ['IGUALDAD DE GÉNERO', 'DERECHOS REPRODUCTIVOS DE LA MUJER', 'ACABAR CON EL ACOSO SEXUAL', 'DERECHOS FAMILIARES DE LOS PADRES'];
-    currentWord = '';
+    arrowColor = '#04E973';
+    homeColor = '#04E973';
+    principlesColor = '#04E973';
+    img = s.loadImage('http://localhost:8080/Sensibilidad.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);
-    s.background('#21F4F4');
+    s.background('#DAFF7D');
     s.noStroke();
+    s.fill('#FFFFFF');
     s.textFont('Futura');
-    s.fill(homeColor);
     s.textStyle(s.BOLD);
-    s.textSize(12);
+    s.textSize(16);
   };
 
   s.draw = function() {
 
-    if(s.select('#p7_2').style('display') == 'block') {
-      // console.log("Sixth Principle – Part 2");
-      //Background
-      s.background('#21F4F4');
-      s.textAlign(s.LEFT);
+    if(s.select('#p8_1').style('display') == 'block') {
+      // console.log("Fourth Principle – Part 2");
 
-      //Page number
-      s.fill('#FFFFFF');
-      s.textFont('Futura');
-      s.textStyle(s.BOLD);
-      s.textSize(16);
-      s.text('7 / 7', 20, s.windowHeight - 20);
+      //Background
+      s.background('#DAFF7D');
 
       //Menu
-      s.noStroke();
+      s.textAlign(s.LEFT);
       s.fill(homeColor);
       s.textSize(12);
       s.text('i n i c i o', s.windowWidth/2 - 110, 30);
@@ -50,43 +39,30 @@ var p7_2 = function(s) {
       s.text('p r i n c i p i o s', s.windowWidth/2, 30);
       s.rect(s.windowWidth/2 + 86, 35, 12, 6);
 
+      //Rectangle
+      s.fill('#FFFFFF');
+      s.rect(0, s.windowHeight/2 - 20, s.windowWidth, 120);
+
       //Title
       s.textAlign(s.CENTER);
-      s.fill('#217df4');
-      s.textStyle(s.BOLD);
-      s.textSize(70);
-      s.text('EL FEMINISMO LUCHA POR:', s.windowWidth/2, s.windowHeight/5 + 70);
-
-      //Text Field
-      s.textAlign(s.LEFT);
-      s.fill('#FFFFFF');
-      s.rect(s.windowWidth/2 - 510, s.windowHeight/5 + 110, 1020, 80);
+      s.textSize(40);
+      s.fill('#04E973');
       s.textStyle(s.NORMAL);
-      s.textSize(30);
-      s.fill('#217df4');
-      s.text(currentWord, s.windowWidth/2 - 490, s.windowHeight/5 + 160);
+      s.text('Y LA SIGUIENTE ES NUESTRA MAYOR', s.windowWidth/2, s.windowHeight/2 - 100);
 
-      //Button
-      s.rect(s.windowWidth/2 + 360, s.windowHeight/5 + 125, 130, 50);
-      s.fill(sendColor);
-      s.textSize(24);
-      s.text('ENVIAR', s.windowWidth/2 + 380, s.windowHeight/5 + 160);
-
-      //Text Area
-      s.fill('#217df4');
-      s.rect(s.windowWidth/2 - 510, s.windowHeight/5 + 210, 1020, 300);
-      s.fill('#FFFFFF');
-      for(i = 0; i < struggles.length; i++ ) {
-        s.text(struggles[i],s.windowWidth/2 - 490, s.windowHeight/5 + 240 + (40*i), 1000, 200)
-      }
-
-      //Struggles
-      s.fill('#FFFFFF');
+      s.blendMode(s.MULTIPLY);
+      s.textStyle(s.BOLD);
+      s.textSize(110);
+      s.fill('#ffff85');
+      s.text('CONVICCIÓN', s.windowWidth/2, s.windowHeight/2 + 30);
+      s.fill('#21f4f4');
+      s.text('CONVICCIÓN', s.windowWidth/2 + 10, s.windowHeight/2 + 40);
+      s.blendMode(s.NORMAL);
 
       //Arrow
-      s.fill(arrowColor);
       var mx = s.windowWidth/2 - 10;
       var my = s.windowHeight - 60;
+      s.fill(arrowColor);
       s.noStroke();
       s.beginShape();
       s.vertex(mx, my);
@@ -104,6 +80,7 @@ var p7_2 = function(s) {
   s.mouseInsideArrow = function() {
     var mx = s.windowWidth/2 - 10;;
     var my = s.windowHeight - 60;
+
     //Check if the mouse is inside the arrow's rectangle
     var dx = s.mouseX - mx;
     var dy = s.mouseY - my;
@@ -151,24 +128,9 @@ var p7_2 = function(s) {
     }
   };
 
-  s.mouseInsideSend = function() {
-    s.rect(s.windowWidth/2 + 360, s.windowHeight/5 + 125, 130, 50);
-    var hx1 = s.windowWidth/2 + 360;
-    var hx2 = s.windowWidth/2 + 490;
-    var hy1 = s.windowHeight/5 + 125;
-    var hy2 = s.windowHeight/5 + 175;
-    if( s.mouseX > hx1 && s.mouseX < hx2 && s.mouseY > hy1 && s.mouseY < hy2 ) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   s.mouseClicked  = function() {
     if(s.mouseInsideArrow()){
       s.next();
-    } else if(s.mouseInsideSend()){
-      s.send();
     } else if(s.mouseInsideHome()) {
       s.home();
     } else if(s.mouseInsidePrinciples()) {
@@ -177,50 +139,38 @@ var p7_2 = function(s) {
   };
 
   s.mouseMoved = function() {
-    if(s.mouseInsideArrow()){
-      s.cursor(s.HAND);
-      arrowColor = '#FFFFFF';
-    } else if(s.mouseInsideSend()) {
-      s.cursor(s.HAND);
-      sendColor = '#2d69ee';
-    } else if(s.mouseInsideHome()) {
+    if(s.mouseInsideHome()) {
       homeColor = '#FFFFFF';
       s.cursor(s.HAND);
     } else if(s.mouseInsidePrinciples()) {
       principlesColor = '#FFFFFF';
       s.cursor(s.HAND);
+    } else if(s.mouseInsideArrow()) {
+      arrowColor = '#FFFFFF';
+      s.cursor(s.HAND);
     } else {
       s.cursor(s.ARROW);
-      homeColor = '#217df4';
-      principlesColor = '#217df4';
-      sendColor = '#ffffff';
-      arrowColor = '#217df4';
+      arrowColor = '#04E973';
+      homeColor = '#04E973';
+      principlesColor = '#04E973';
     }
   };
 
-  s.keyTyped = function() {
-    currentWord = currentWord + s.key;
-  }
-
-  s.send = function() {
-    s.append(struggles, currentWord);
-    currentWord = '';
-  };
-
   s.next = function() {
-    s.select('#p7_3').show();
-    s.select('#p7_2').hide();
+    s.select('#p8_2').show();
+    s.select('#p8_1').hide();
   };
 
   s.home = function() {
     s.select('#home').show();
-    s.select('#p7_2').hide();
+    s.select('#p8_1').hide();
   };
 
   s.first = function() {
     s.select('#p1_1').show();
-    s.select('#p7_2').hide();
+    s.select('#p8_1').hide();
   };
+
 }
 
-var p7_2 = new p5(p7_2, 'p7_2');
+var p8_1 = new p5(p8_1, 'p8_1');
