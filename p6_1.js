@@ -14,7 +14,6 @@ var p6_1 = function(s) {
     count = 0;
     homeColor = '#e61dff';
     principlesColor = '#e61dff';
-    count = 0;
     backwards = 0;
     pluralColor = '#e61dff';
     overPlural = false;

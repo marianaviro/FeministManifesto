@@ -1,21 +1,21 @@
 var colective_challenges = [
     {
-      "name": "Siete Polas"
+      "name": "BUSCA ALGÚN EVENTO FEMINISTA O CON ENFOQUE DE GÉNERO Y ASISTE."
     },
     {
-      "name": "Chicas Poderosas"
+      "name": "SIGUE A UNA ONG FEMINISTA EN FACEBOOK."
     },
     {
-      "name": "Niñas sin miedo"
+      "name": "CREA O PARTICIPA EN UN CLUB DE LECTURA CON ENFOQUE FEMINISTA."
     },
     {
-      "name": "Fondo lunaria"
+      "name": "SAL A MARCHAR POR LOS DERECHOS DE LA MUJER."
     },
     {
-      "name": "Gordas sin chaqueta"
+      "name": "ABRE UN DEBATE EN EL LUGAR DE ESTUDIO O DE TRABAJO PARA HABLAR SOBRE DESIGUALDADES."
     },
     {
-      "name": "Colectiva Polimorfas"
+      "name": "¡COMPARTE ESTA PÁGINA!"
     },
     {
       "name": "Colectiva Libertaria Severas Flores"

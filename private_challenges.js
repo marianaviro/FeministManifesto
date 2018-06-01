@@ -3,51 +3,18 @@ var private_challenges = [
       "name": "MIRA EL DOCUMENTAL “SHE’S BEAUTIFUL WHEN SHE’S ANGRY”."
     },
     {
-      "name": "Chicas Poderosas"
+      "name": "BUSCA 3 LÍDERES FEMINISTAS Y AVERIGUAR SUS CONTRIBUCIONES."
     },
     {
-      "name": "Niñas sin miedo"
+      "name": "BUSCA 5 DEMANDAS DEL FEMINISMO."
     },
     {
-      "name": "Fondo lunaria"
+      "name": "PRONÚNCIATE AL RECONOCER UN COMENTARIO DEGRINANTE HACIA LA MUJER."
     },
     {
-      "name": "Gordas sin chaqueta"
+      "name": "REFLEXIONA SOBRE FRASES QUE UNO HA DICHO EN LA COTIDIANIDAD QUE ATRIBUYAN A LA DESIGUALDAD."
     },
     {
-      "name": "Colectiva Polimorfas"
-    },
-    {
-      "name": "Colectiva Libertaria Severas Flores"
-    },
-    {
-      "name": "Sisma Mujer"
-    },
-    {
-      "name": "La Mesa por la Vida y la Salud de las mujeres"
-    },
-    {
-      "name": "Las Parceras – Línea y Red Feminista de Acompañamiento en Aborto"
-    },
-    {
-      "name": "La Tremenda Revoltosa – Batucada Feminista"
-    },
-    {
-      "name": "La Morada"
-    },
-    {
-      "name": "Atrévete Bogotá Hollback!"
-    },
-    {
-      "name": "Observatorio Contra el Acoso Callejero"
-    },
-    {
-      "name": "Yerbateras"
-    },
-    {
-      "name": "Yela Quim"
-    },
-    {
-      "name": "MyGRLStory"
+      "name": "LEE UN LIBRO RELACIONADO AL FEMINISMO."
     }
   ];
