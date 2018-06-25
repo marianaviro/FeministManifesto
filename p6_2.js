@@ -221,17 +221,38 @@ var p6_2 = function(s) {
   s.another = function() {
     challenge = private_challenges[Math.floor(Math.random() * private_challenges.length)];
   };
+  Date.prototype.addHours = function(h) {    
+    this.setTime(this.getTime() + (h*60*60*1000)); 
+    return this;   
+  };
+
+  Date.prototype.addDays = function(days) {
+    var dat = new Date(this.valueOf());
+    dat.setDate(dat.getDate() + days);
+    return dat;
+  }
 
   s.share = function() {
-    FB.ui({
-      method: 'share',
-      quote: 'Mi reto es: ',
-      hashtag: '#TOD_S',
-      href: 'https://developers.facebook.com/docs/'
-    }, function(response){
-     // Debug response (optional)
-     console.log(response);
-      });
+    // date of today
+    let today = new Date();
+    // number of days from today that the event will be programmed
+    let numberOfDaysToAdd = 7;
+    // number of hours that the event will last
+    let numberOfHoursToAdd = 1;
+    // initial date of the event
+    let iDate = today.addDays(numberOfDaysToAdd);
+    // final date of the event
+    let fDate = today.addDays(numberOfDaysToAdd).addHours(numberOfHoursToAdd);
+    // name of the event
+    let eventName = '#TOD_S';
+    // name of the file fileName.ics
+    let fileName = eventName;
+    // location of the event
+    let location = '';
+    var cal = ics();
+    cal.addEvent(eventName, challenge.name, location, iDate, fDate);
+    cal.download(fileName);
+   
   };
 
   s.next = function() {

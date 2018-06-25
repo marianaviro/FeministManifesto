@@ -226,13 +226,13 @@ var p6_3 = function(s) {
   s.share = function() {
     FB.ui({
       method: 'share',
-      quote: 'Mi reto es: ',
+      quote: `Mi reto es: ${challenge.name}`,
       hashtag: '#TOD_S',
-      href: 'https://developers.facebook.com/docs/'
+      href: 'http://tod-s.co/'
     }, function(response){
      // Debug response (optional)
-     console.log(response);
-      });
+      console.log(response);
+    });
   };
 
   s.next = function() {
