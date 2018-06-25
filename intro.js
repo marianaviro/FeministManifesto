@@ -16,7 +16,7 @@ var intro = function(s) {
     homeColor2 = '#21f4f4';
     principlesColor1 = '#ff83ff';
     principlesColor2 = '#21f4f4';
-    img = s.loadImage('http://localhost:8080/TheFutureIsFeminist.png');
+    img = s.loadImage('assets/TheFutureIsFeminist.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

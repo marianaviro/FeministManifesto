@@ -20,10 +20,10 @@ var tutorial = function(s) {
     startColor = '#ffffff';
     homeColor = '#ff83ff';
     principlesColor = '#ff83ff';
-    img1 = s.loadImage('http://localhost:8080/Tutorial1.png');
-    img2 = s.loadImage('http://localhost:8080/Tutorial2.png');
-    img3 = s.loadImage('http://localhost:8080/Tutorial3.png');
-    img4 = s.loadImage('http://localhost:8080/Tutorial4.png');
+    img1 = s.loadImage('assets/Tutorial1.png');
+    img2 = s.loadImage('assets/Tutorial2.png');
+    img3 = s.loadImage('assets/Tutorial3.png');
+    img4 = s.loadImage('assets/Tutorial4.png');
     currentImg = img1;
     s.background('#FFFFFF');
     s.noStroke();

@@ -9,7 +9,7 @@ var p8_2 = function(s) {
     arrowColor = '#04E973';
     homeColor = '#04E973';
     principlesColor = '#04E973';
-    img = s.loadImage('http://localhost:8080/Final.png');
+    img = s.loadImage('assets/Final.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

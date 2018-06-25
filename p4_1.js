@@ -9,7 +9,7 @@ var p4_1 = function(s) {
   var playing;
 
   s.preload = function() {
-    song = s.loadSound('http://localhost:8080/song.mp3');
+    song = s.loadSound('assets/song.mp3');
   }
 
   s.setup = function() {

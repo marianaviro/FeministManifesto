@@ -9,7 +9,7 @@ var p6_4 = function(s) {
     homeColor = '#e61dff';
     principlesColor = '#e61dff';
     arrowColor = '#e61dff';
-    img = s.loadImage('http://localhost:8080/WomanPower.png');
+    img = s.loadImage('assets/WomanPower.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

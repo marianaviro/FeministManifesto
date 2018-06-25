@@ -9,7 +9,7 @@ var p7_3 = function(s) {
     homeColor = '#217DF4';
     principlesColor = '#217DF4';
     arrowColor = '#217DF4';
-    img = s.loadImage('http://localhost:8080/Convicciones.png');
+    img = s.loadImage('assets/Convicciones.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

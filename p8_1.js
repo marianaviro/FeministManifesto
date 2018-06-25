@@ -9,7 +9,7 @@ var p8_1 = function(s) {
     arrowColor = '#04E973';
     homeColor = '#04E973';
     principlesColor = '#04E973';
-    img = s.loadImage('http://localhost:8080/Sensibilidad.png');
+    img = s.loadImage('assets/Sensibilidad.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

@@ -9,7 +9,7 @@ var p5_2 = function(s) {
     homeColor = '#21f4f4';
     principlesColor = '#21f4f4';
     arrowColor = '#21f4f4';
-    img = s.loadImage('http://localhost:8080/RealMen.png');
+    img = s.loadImage('assets/RealMen.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

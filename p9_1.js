@@ -16,7 +16,7 @@ var p9_1 = function(s) {
     principlesColor = '#ffff85';
     restartColor1 = '#ffff85';
     restartColor2 = '#ff8385';
-    img = s.loadImage('http://localhost:8080/Redes.png');
+    img = s.loadImage('assets/Redes.png');
     abc = 'ABDEGHKOPRSUVXYZ234567890?=#&';
     letter = abc.charAt(Math.floor(Math.random() * abc.length));
     count = 0;

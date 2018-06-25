@@ -9,7 +9,7 @@ var p3_2 = function(s) {
     arrowColor = '#04E973';
     homeColor = '#04E973';
     principlesColor = '#04E973';
-    img = s.loadImage('http://localhost:8080/Escepticismo.png');
+    img = s.loadImage('assets/Escepticismo.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

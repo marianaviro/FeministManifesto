@@ -9,7 +9,7 @@ var p1_3 = function(s) {
     homeColor = '#e61dff';
     principlesColor = '#e61dff';
     arrowColor = '#e61dff';
-    img = s.loadImage('http://localhost:8080/Plural.png');
+    img = s.loadImage('assets/Plural.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

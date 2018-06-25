@@ -9,7 +9,7 @@ var p4_3 = function(s) {
     arrowColor = '#ffff85';
     homeColor = '#ffff85';
     principlesColor = '#ffff85';
-    img = s.loadImage('http://localhost:8080/Racionalidad.png');
+    img = s.loadImage('assets/Racionalidad.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

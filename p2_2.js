@@ -9,7 +9,7 @@ var p2_2 = function(s) {
     homeColor = '#217DF4';
     principlesColor = '#217DF4';
     arrowColor = '#217DF4';
-    img = s.loadImage('http://localhost:8080/Todos.png');
+    img = s.loadImage('assets/Todos.png');
 
     //Canvas
     s.createCanvas(s.displayWidth, s.displayHeight);

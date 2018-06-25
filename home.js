@@ -10,7 +10,7 @@ var home = function(s) {
     arrowColor = '#731dd3';
     homeColor = '#731dd3';
     principlesColor = '#731dd3';
-    logo = s.loadImage('http://localhost:8080/logo.png');
+    logo = s.loadImage('assets/logo.png');
     s.noStroke();
     s.textFont('Futura');
     s.fill(homeColor);
